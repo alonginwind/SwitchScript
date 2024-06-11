@@ -9,6 +9,7 @@ on:
       - 'switchScript.sh'
   schedule:
     - cron: 0 8 * * *
+  workflow_dispatch:
 
 env:
   SCRIPT_SH: switchScript.sh
