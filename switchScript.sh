@@ -205,21 +205,21 @@ else
     mv DBI.nro ./switch/DBI
 fi
 
-### Fetch lastest Awoo Installer from https://github.com/dragonflylee/Awoo-Installer/releases/latest
-curl -sL https://api.github.com/repos/dragonflylee/Awoo-Installer/releases/latest \
-  | jq '.name' \
-  | xargs -I {} echo {} >> ../description.txt
-curl -sL https://api.github.com/repos/dragonflylee/Awoo-Installer/releases/latest \
-  | grep -oP '"browser_download_url": "\Khttps://[^"]*Awoo-Installer.zip"' \
-  | sed 's/"//g' \
-  | xargs -I {} curl -sL {} -o Awoo-Installer.zip
-if [ $? -ne 0 ]; then
-    echo "Awoo Installer download\033[31m failed\033[0m."
-else
-    echo "Awoo Installer download\033[32m success\033[0m."
-    unzip -oq Awoo-Installer.zip
-    rm Awoo-Installer.zip
-fi
+#### Fetch lastest Awoo Installer from https://github.com/dragonflylee/Awoo-Installer/releases/latest
+#curl -sL https://api.github.com/repos/dragonflylee/Awoo-Installer/releases/latest \
+#  | jq '.name' \
+#  | xargs -I {} echo {} >> ../description.txt
+#curl -sL https://api.github.com/repos/dragonflylee/Awoo-Installer/releases/latest \
+#  | grep -oP '"browser_download_url": "\Khttps://[^"]*Awoo-Installer.zip"' \
+#  | sed 's/"//g' \
+#  | xargs -I {} curl -sL {} -o Awoo-Installer.zip
+#if [ $? -ne 0 ]; then
+#    echo "Awoo Installer download\033[31m failed\033[0m."
+#else
+#    echo "Awoo Installer download\033[32m success\033[0m."
+#    unzip -oq Awoo-Installer.zip
+#    rm Awoo-Installer.zip
+#fi
 
 ### Fetch lastest Hekate-toolbox from https://github.com/WerWolv/Hekate-Toolbox/releases/latest
 curl -sL https://api.github.com/repos/WerWolv/Hekate-Toolbox/releases/latest \
