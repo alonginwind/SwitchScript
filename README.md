@@ -94,13 +94,13 @@
 
 # Tesla
 
-huangqiang8大佬使用的Tesla方案是zdm大佬的tesla方案终极版
+huangqian8大佬使用的Tesla方案是zdm大佬的tesla方案终极版
 
 好用是真的好用，但是我联系不上zdm大佬要他的github的发行链接
 
 所以只能在论坛上下载，然后手动push到github上，属于是手动更更新了
 
-*当然，这个解决方法也是huangqiang8大佬想出来的嘿嘿*
+*当然，这个解决方法也是huangqian8大佬想出来的嘿嘿*
 
 [品技论坛（上不去得挂梯子）](https://www.tekqart.com/thread-222735-1-1.html?_dsign=c72d4895)
 
