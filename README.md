@@ -11,6 +11,8 @@
 - 下载最新
   - 大气层三件套
     - [x] `Atmosphere + Fusee` [From Here](https://github.com/Atmosphere-NX/Atmosphere/releases/latest)
+    - [ ] `Hekate + Nyx` [From Here](https://github.com/CTCaer/hekate/releases/latest)
+      - [ ] `Hekate + Nyx 简体汉化版` [From Here](https://www.tekqart.com/thread-222735-1-1.html)
     - [x] `EasyWrold汉化整合版`[From Here](https://github.com/easyworld/hekate/releases)
     - [x] `SigPatches` [From Here](https://sigmapatches.su/)
   - Payload插件
@@ -19,17 +21,28 @@
     - [x] Hekate下删除主题和关闭插件自动启动 `CommonProblemResolver` [From Here](https://github.com/zdm65477730/CommonProblemResolver/releases/latest)
   - Nro插件
     - [x] 联网检测是否屏蔽任天堂服务器 `Switch_90DNS_tester.nro` [From Here](https://github.com/meganukebmp/Switch_90DNS_tester/releases/latest)
+    - [ ] 游戏存档管理工具 `Checkpoint` [From Here](https://github.com/BernardoGiordano/Checkpoint/releases/latest)
     - [x] 游戏安装，存档管理和文件传输工具 `DBI` [From Here](https://github.com/rashevskyv/dbi/releases/latest)
     - [x] 游戏安装和文件传输工具 `Awoo Installer` [From Here](https://github.com/dragonflylee/Awoo-Installer/releases/latest)
     - [x] 深海工具箱 `Hekate-toolbox` [From Here](https://github.com/WerWolv/Hekate-Toolbox/releases/latest)
     - [x] 游戏游玩时间记录工具 `NX-Activity-Log` [From Here](https://github.com/zdm65477730/NX-Activity-Log/releases/latest)
+    - [ ] 主题安装工具 `NXThemesInstaller` [From Here](https://github.com/exelix11/SwitchThemeInjector/releases/latest)
     - [x] 游戏存档管理工具 `JKSV` [From Here](https://github.com/J-D-K/JKSV/releases/latest)
     - [x] 系统切换工具 `tencent-switcher-gui` [From Here](https://github.com/CaiMiao/Tencent-switcher-GUI/releases/latest)
+    - [ ] 金手指工具 `Breeze` [From Here](https://github.com/tomvita/Breeze-Beta/releases/latest)
+    - [ ] SigPatches更新工具 `Sigpatch-Updater` [From Here](https://github.com/ITotalJustice/sigpatch-updater/releases/latest)
+    - [ ] 大气层三件套更新工具 `AtmoPackUpdater` [From Here](https://github.com/PoloNX/AtmoPackUpdater/releases/latest)
+    - [ ] 时间调整工具 `SwitchTime` [From Here](https://github.com/3096/switch-time/releases/latest)
+    - [ ] 极限超频插件 `Atmosphere-OC-Suite` [From Here](https://github.com/hanai3Bi/Switch-OC-Suite/releases/latest)
+    - [x] 多工具合一任天堂Switch更新器 `aio-switch-updater` [From Here](https://github.com/HamletDuFromage/aio-switch-updater/releases/latest)
     - [x] 第三方B站客户端 `wiliwili` [From Here](https://github.com/xfangfang/wiliwili/releases/latest)
     - [x] Mod下载器 `SimpleModDownloader` [From Here](https://github.com/PoloNX/SimpleModDownloader/releases/latest)
     - [x] Mod管理器`SimpleModManager`[From Here](https://github.com/nadrino/SimpleModManager)
+    - [ ] Jellyfin客户端 `Switchfin` [From Here](https://github.com/dragonflylee/switchfin/releases/latest)
     - [x] 串流工具 `Moonlight` [From Here](https://github.com/XITRIX/Moonlight-Switch/releases/latest)
     - [x] 文件管理工具 `NX-Shell`[From Here](https://github.com/joel16/NX-Shell)
+  - 补丁
+    - [ ] 主题破解 `theme-patches` [From Here](https://github.com/exelix11/theme-patches)
   - Tesla
     - [x] 加载器 `nx-ovlloader` [From Here](https://www.tekqart.com/thread-222735-1-1.html)
     - [x] 初始菜单 `Tesla-Menu` [From Here](https://www.tekqart.com/thread-222735-1-1.html)
@@ -43,6 +56,8 @@
     - [x] 游戏捕获到pc插件`sysdvr`  [From Here](https://www.tekqart.com/thread-222735-1-1.html)
     - [x] 虚拟Amiibo `emuiibo` [From Here](https://www.tekqart.com/thread-222735-1-1.html)
     - [x] 时间同步 `QuickNTP` [From Here](https://www.tekqart.com/thread-222735-1-1.html)
+    - [ ] 色彩调整 `Fizeau` [From Here](https://www.tekqart.com/thread-222735-1-1.html)
+    - [ ] 金手指工具 `Zing` [From Here](https://www.tekqart.com/thread-222735-1-1.html)
     - [x] 后台音乐 `sys-tune` [From Here](https://www.tekqart.com/thread-370954-1-1.html)
     - [x] 系统补丁 `sys-patch` [From Here](https://www.tekqart.com/thread-370955-1-1.html)
 - 文件操作：
@@ -67,7 +82,6 @@
 - 替换NX-Activity-Log原版拉取地址
 - 精简tencent-switcher-gui插件（使用zdm大佬的ovl插件ovl-sysmodules即可完成国行 <-> 国际的切换）
 - 精简Jellyfin客户端（真把switch当电视机顶盒用啊）
-- 精简AIO插件（其实这个插件真的很好用，但是由于种种原因国内用起来体验实在是过于差劲了，故放弃此插件）
 - 精简主题安装工具（我不喜欢用别的主题，听说还会影响机器性能）
 - 精简主题破解补丁（理由同上）
 - 增加nro插件Mod管理器
