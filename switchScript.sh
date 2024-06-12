@@ -375,7 +375,7 @@ if [ $? -ne 0 ]; then
 else
     echo "SimpleModManager download\033[32m success\033[0m."
     mkdir -p ./switch/SimpleModManager
-    mkdir -p ./mod
+    mkdir -p ./mods
     mv SimpleModManager.nro ./switch/SimpleModManager
 fi
 
