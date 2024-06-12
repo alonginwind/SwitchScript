@@ -407,8 +407,8 @@ if [ $? -ne 0 ]; then
     echo "Moonlight download\033[31m failed\033[0m."
 else
     echo "Moonlight download\033[32m success\033[0m."
-    mkdir -p ./switch/Moonlight
-    mv Moonlight-Switch.nro ./switch/Moonlight
+    mkdir -p ./switch/Moonlight-Switch
+    mv Moonlight-Switch.nro ./switch/Moonlight-Switch
 fi
 
 #### Fetch lastest theme-patches from https://github.com/exelix11/theme-patches
