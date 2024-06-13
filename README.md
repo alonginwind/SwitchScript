@@ -44,6 +44,7 @@
     - [x] 系统超频  `sys-clk`[From Here](https://www.tekqart.com/thread-222735-1-1.html)
     - [x] 掌机底座模式切换 `ReverseNX-RT` [From Here](https://www.tekqart.com/thread-222735-1-1.html)
     - [x] 时间同步 `QuickNTP` [From Here](https://www.tekqart.com/thread-222735-1-1.html)
+    - [x] 系统补丁 `sys-patch` [From Here](https://www.tekqart.com/thread-370955-1-1.html?_dsign=cac7368e)
 - 文件操作：
   - [x] 移动 `fusee.bin` 至 `bootloader/payloads` 文件夹
   - [x] 将 `hekate_ctcaer_*.bin` 重命名为 `payload.bin`
@@ -71,7 +72,6 @@
 - 精简emuiibo（不玩宝可梦好像用不太上这破玩意）
 - 精简ldn_mitm（一般是远程联机配合lanplay用）
 - 精简sys-tune（一般我听游戏音乐，用不上背景音乐）
-- 精简sys-patch（直接使用SigPatches自带的syspatch）
 - 精简CommonProblemResolver插件（这个插件真的是坑惨我了！！！！）
 - 
 - 增加nro插件Mod管理器
@@ -105,6 +105,7 @@ huangqian8大佬使用的Tesla方案是zdm大佬的tesla方案终极版
 - **ReverseNX-RT和FPSLocker**
 - **EdiZon-SE和EdiZon-Overlay**
 - **sys-clk**
+- **sys-patch** ：东方大佬版本
 
 # sigpatch + sys patch
 

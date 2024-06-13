@@ -527,6 +527,7 @@ StatusMonitor
 sys-clk-overlay
 ReverseNX-RT
 QuickNTP
+sys-patch
 ENDOFFILE
 
 ### Fetch EdiZon
@@ -620,15 +621,15 @@ fi
 #    rm sys-tune.zip
 #fi
 
-#### Fetch sys-patch
-#curl -sL https://raw.githubusercontent.com/Zhuwenxue2002/SwitchPlugins/main/plugins/sys-patch.zip -o sys-patch.zip
-#if [ $? -ne 0 ]; then
-#    echo "sys-patch download\033[31m failed\033[0m."
-#else
-#    echo "sys-patch download\033[32m success\033[0m."
-#    unzip -oq sys-patch.zip
-#    rm sys-patch.zip
-#fi
+### Fetch sys-patch
+curl -sL https://raw.githubusercontent.com/Zhuwenxue2002/SwitchPlugins/main/plugins/sys-patch.zip -o sys-patch.zip
+if [ $? -ne 0 ]; then
+    echo "sys-patch download\033[31m failed\033[0m."
+else
+    echo "sys-patch download\033[32m success\033[0m."
+    unzip -oq sys-patch.zip
+    rm sys-patch.zip
+fi
 
 #### 新增sysDvr
 #curl -sL https://raw.githubusercontent.com/Zhuwenxue2002/SwitchPlugins/main/plugins/SysDVR.zip -o SysDVR.zip
@@ -650,6 +651,7 @@ StatusMonitor
 sys-clk
 ReverseNX-RT
 QuickNTP
+sys-patch
 ENDOFFILE
 
 ### Rename hekate_ctcaer_*.bin to payload.bin
