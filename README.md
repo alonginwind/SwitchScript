@@ -6,6 +6,8 @@
 
 - 使用linu系统运行则需要jq依赖，可fork到自己仓库重新开发
 
+- 虽然表面上精简了超级多的插件，但是整合包内置了hb-appstore，可以进入此插件自行下载所需插件
+
 ## 功能如下
 
 - 下载最新
@@ -16,7 +18,6 @@
   - Payload插件
     - [x] 主机系统的密钥提取工具 `Lockpick_RCM` [From Here](https://github.com/Decscots/Lockpick_RCM/releases/latest)
     - [x] Hekate下的文件管理工具 `TegraExplorer` [From Here](https://github.com/zdm65477730/TegraExplorer/releases/latest)
-    - [x] Hekate下删除主题和关闭插件自动启动 `CommonProblemResolver` [From Here](https://github.com/zdm65477730/CommonProblemResolver/releases/latest)
   - Nro插件
     - [x] 联网检测是否屏蔽任天堂服务器 `Switch_90DNS_tester.nro` [From Here](https://github.com/meganukebmp/Switch_90DNS_tester/releases/latest)
     - [x] 游戏安装，存档管理和文件传输工具 `DBI` [From Here](https://github.com/rashevskyv/dbi/releases/latest)
@@ -32,6 +33,7 @@
     - [x] 串流工具 `Moonlight` [From Here](https://github.com/XITRIX/Moonlight-Switch/releases/latest)
     - [x] 文件管理工具 `NX-Shell`[From Here](https://github.com/joel16/NX-Shell)
     - [x] 手柄支持工具 `sys-con&MissionControl` [From Here](https://github.com/o0Zz/sys-con)&[From Here](https://github.com/ndeadly/MissionControl)
+    - [x] nro插件商店 `hb-appstore` [From Here](https://github.com/fortheusers/hb-appstore)
   - Tesla
     - [x] 加载器 `nx-ovlloader` [From Here](https://www.tekqart.com/thread-222735-1-1.html)
     - [x] 初始菜单 `Tesla-Menu` [From Here](https://www.tekqart.com/thread-222735-1-1.html)
@@ -39,14 +41,9 @@
     - [x] 金手指工具 `EdiZon` [From Here](https://www.tekqart.com/thread-222735-1-1.html)
     - [x] 系统模块 `ovl-sysmodules` [From Here](https://www.tekqart.com/thread-222735-1-1.html)
     - [x] 系统监视 `StatusMonitor` [From Here](https://www.tekqart.com/thread-222735-1-1.html)
-    - [x] 系统超频 `sys-clk` [From Here](https://www.tekqart.com/thread-222735-1-1.html)
+    - [x] 系统超频  `sys-clk`[From Here](https://www.tekqart.com/thread-222735-1-1.html)
     - [x] 掌机底座模式切换 `ReverseNX-RT` [From Here](https://www.tekqart.com/thread-222735-1-1.html)
-    - [x] 局域网联机 `ldn_mitm` [From Here](https://www.tekqart.com/thread-222735-1-1.html)
-    - [x] 游戏捕获到pc插件`sysdvr`  [From Here](https://www.tekqart.com/thread-222735-1-1.html)
-    - [x] 虚拟Amiibo `emuiibo` [From Here](https://www.tekqart.com/thread-222735-1-1.html)
     - [x] 时间同步 `QuickNTP` [From Here](https://www.tekqart.com/thread-222735-1-1.html)
-    - [x] 后台音乐 `sys-tune` [From Here](https://www.tekqart.com/thread-370954-1-1.html)
-    - [x] 系统补丁 `sys-patch` [From Here](https://www.tekqart.com/thread-370955-1-1.html)
 - 文件操作：
   - [x] 移动 `fusee.bin` 至 `bootloader/payloads` 文件夹
   - [x] 将 `hekate_ctcaer_*.bin` 重命名为 `payload.bin`
@@ -71,16 +68,24 @@
 - 精简Jellyfin客户端（真把switch当电视机顶盒用啊）
 - 精简主题安装工具（我不喜欢用别的主题，听说还会影响机器性能）
 - 精简主题破解补丁（理由同上）
+- 精简emuiibo（不玩宝可梦好像用不太上这破玩意）
+- 精简ldn_mitm（一般是远程联机配合lanplay用）
+- 精简sys-tune（一般我听游戏音乐，用不上背景音乐）
+- 精简sys-patch（直接使用SigPatches自带的syspatch）
+- 精简CommonProblemResolver插件（这个插件真的是坑惨我了！！！！）
+- 
 - 增加nro插件Mod管理器
 - 增加nro插件NX-Shell（可以不用连接电脑去删文件了！！！）
-- 增加ovl插件sysDvr
+- 增加ovl插件sysDvr（又精简了，这玩意除了直播没啥用）
 - 增加插件MissionControl（蓝牙手柄连接）
-- 增加nro插件sys-con（usb手柄链接） *这个插件不是官方原版，而是一个新分支！！*
+- 增加nro插件sys-con（usb手柄链接） *这个插件不是官方原版，而是一个新分支！！*、
+- 增加nro插件商店hb-appstore
 
 ## 更新日志
 
 - 2024-06-12：fork脚本建立项目，由小白二次开发
-- 2024-6-13：新增插件MissionControl，sys-con
+- 2024-06-13：新增插件MissionControl，sys-con
+- 2024-06-13：新增插件hb-appstore
 
 # Tesla
 
@@ -95,12 +100,9 @@ huangqian8大佬使用的Tesla方案是zdm大佬的tesla方案终极版
 [品技论坛（上不去得挂梯子）](https://www.tekqart.com/thread-222735-1-1.html?_dsign=c72d4895)
 
 - **QuickNTP**
-- **sysdvr-overlay**(新增)
-- **ldn_mitm**
 - **Status-Monitor-Overlay**
 - **ovl-sysmodules**
 - **ReverseNX-RT和FPSLocker**
-- **emuiibo**
 - **EdiZon-SE和EdiZon-Overlay**
 - **sys-clk**
 

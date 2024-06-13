@@ -146,20 +146,20 @@ else
     mv TegraExplorer.bin ./bootloader/payloads
 fi
 
-### Fetch latest CommonProblemResolver.bin form https://github.com/zdm65477730/CommonProblemResolver/releases
-curl -sL https://api.github.com/repos/zdm65477730/CommonProblemResolver/releases/latest \
-  | jq '.tag_name' \
-  | xargs -I {} echo CommonProblemResolver {} >> ../description.txt
-curl -sL https://api.github.com/repos/zdm65477730/CommonProblemResolver/releases/latest \
-  | grep -oP '"browser_download_url": "\Khttps://[^"]*CommonProblemResolver.bin"' \
-  | sed 's/"//g' \
-  | xargs -I {} curl -sL {} -o CommonProblemResolver.bin
-if [ $? -ne 0 ]; then
-    echo "CommonProblemResolver download\033[31m failed\033[0m."
-else
-    echo "CommonProblemResolver download\033[32m success\033[0m."
-    mv CommonProblemResolver.bin ./bootloader/payloads
-fi
+#### Fetch latest CommonProblemResolver.bin form https://github.com/zdm65477730/CommonProblemResolver/releases
+#curl -sL https://api.github.com/repos/zdm65477730/CommonProblemResolver/releases/latest \
+#  | jq '.tag_name' \
+#  | xargs -I {} echo CommonProblemResolver {} >> ../description.txt
+#curl -sL https://api.github.com/repos/zdm65477730/CommonProblemResolver/releases/latest \
+#  | grep -oP '"browser_download_url": "\Khttps://[^"]*CommonProblemResolver.bin"' \
+#  | sed 's/"//g' \
+#  | xargs -I {} curl -sL {} -o CommonProblemResolver.bin
+#if [ $? -ne 0 ]; then
+#    echo "CommonProblemResolver download\033[31m failed\033[0m."
+#else
+#    echo "CommonProblemResolver download\033[32m success\033[0m."
+#    mv CommonProblemResolver.bin ./bootloader/payloads
+#fi
 
 ### 更换原版90DNS拉取地址
 curl -sL https://api.github.com/repos/meganukebmp/Switch_90DNS_tester/releases/latest \
@@ -436,6 +436,22 @@ else
     mv NX-Shell.nro ./switch/NX-Shell
 fi
 
+### Fetch lastest hb-appstore from https://github.com/fortheusers/hb-appstore/releases/latest
+curl -sL https://api.github.com/repos/fortheusers/hb-appstore/releases/latest \
+  | jq '.tag_name' \
+  | xargs -I {} echo {} >> ../description.txt
+curl -sL https://api.github.com/repos/fortheusers/hb-appstore/releases/latest \
+  | grep -oP '"browser_download_url": "\Khttps://[^"]*appstore.nro"' \
+  | sed 's/"//g' \
+  | xargs -I {} curl -sL {} -o appstore.nro
+if [ $? -ne 0 ]; then
+    echo "appstore download\033[31m failed\033[0m."
+else
+    echo "appstore download\033[32m success\033[0m."
+    mkdir -p ./switch/appstore
+    mv appstore.nro ./switch/appstore
+fi
+
 ### Fetch lastest MissionControl from https://github.com/ndeadly/MissionControl/releases/latest
 curl -sL https://api.github.com/repos/ndeadly/MissionControl/releases/latest \
   | jq '.name' \
@@ -510,11 +526,7 @@ ovl-sysmodules
 StatusMonitor
 sys-clk-overlay
 ReverseNX-RT
-SysDVR
-ldn_mitm
-emuiibo
 QuickNTP
-sys-tune
 ENDOFFILE
 
 ### Fetch EdiZon
@@ -567,25 +579,25 @@ else
     rm ReverseNX-RT.zip
 fi
 
-### Fetch ldn_mitm
-curl -sL https://raw.githubusercontent.com/Zhuwenxue2002/SwitchPlugins/main/plugins/ldn_mitm.zip -o ldn_mitm.zip
-if [ $? -ne 0 ]; then
-    echo "ldn_mitm download\033[31m failed\033[0m."
-else
-    echo "ldn_mitm download\033[32m success\033[0m."
-    unzip -oq ldn_mitm.zip
-    rm ldn_mitm.zip
-fi
+#### Fetch ldn_mitm
+#curl -sL https://raw.githubusercontent.com/Zhuwenxue2002/SwitchPlugins/main/plugins/ldn_mitm.zip -o ldn_mitm.zip
+#if [ $? -ne 0 ]; then
+#    echo "ldn_mitm download\033[31m failed\033[0m."
+#else
+#    echo "ldn_mitm download\033[32m success\033[0m."
+#    unzip -oq ldn_mitm.zip
+#    rm ldn_mitm.zip
+#fi
 
-### Fetch emuiibo
-curl -sL https://raw.githubusercontent.com/Zhuwenxue2002/SwitchPlugins/main/plugins/emuiibo.zip -o emuiibo.zip
-if [ $? -ne 0 ]; then
-    echo "emuiibo download\033[31m failed\033[0m."
-else
-    echo "emuiibo download\033[32m success\033[0m."
-    unzip -oq emuiibo.zip
-    rm emuiibo.zip
-fi
+#### Fetch emuiibo
+#curl -sL https://raw.githubusercontent.com/Zhuwenxue2002/SwitchPlugins/main/plugins/emuiibo.zip -o emuiibo.zip
+#if [ $? -ne 0 ]; then
+#    echo "emuiibo download\033[31m failed\033[0m."
+#else
+#    echo "emuiibo download\033[32m success\033[0m."
+#    unzip -oq emuiibo.zip
+#    rm emuiibo.zip
+#fi
 
 ### Fetch QuickNTP
 curl -sL https://raw.githubusercontent.com/Zhuwenxue2002/SwitchPlugins/main/plugins/QuickNTP.zip -o QuickNTP.zip
@@ -598,35 +610,35 @@ else
 fi
 
 
-### Fetch sys-tune
-curl -sL https://raw.githubusercontent.com/Zhuwenxue2002/SwitchPlugins/main/plugins/sys-tune.zip -o sys-tune.zip
-if [ $? -ne 0 ]; then
-    echo "sys-tune download\033[31m failed\033[0m."
-else
-    echo "sys-tune download\033[32m success\033[0m."
-    unzip -oq sys-tune.zip
-    rm sys-tune.zip
-fi
+#### Fetch sys-tune
+#curl -sL https://raw.githubusercontent.com/Zhuwenxue2002/SwitchPlugins/main/plugins/sys-tune.zip -o sys-tune.zip
+#if [ $? -ne 0 ]; then
+#    echo "sys-tune download\033[31m failed\033[0m."
+#else
+#    echo "sys-tune download\033[32m success\033[0m."
+#    unzip -oq sys-tune.zip
+#    rm sys-tune.zip
+#fi
 
-### Fetch sys-patch
-curl -sL https://raw.githubusercontent.com/Zhuwenxue2002/SwitchPlugins/main/plugins/sys-patch.zip -o sys-patch.zip
-if [ $? -ne 0 ]; then
-    echo "sys-patch download\033[31m failed\033[0m."
-else
-    echo "sys-patch download\033[32m success\033[0m."
-    unzip -oq sys-patch.zip
-    rm sys-patch.zip
-fi
+#### Fetch sys-patch
+#curl -sL https://raw.githubusercontent.com/Zhuwenxue2002/SwitchPlugins/main/plugins/sys-patch.zip -o sys-patch.zip
+#if [ $? -ne 0 ]; then
+#    echo "sys-patch download\033[31m failed\033[0m."
+#else
+#    echo "sys-patch download\033[32m success\033[0m."
+#    unzip -oq sys-patch.zip
+#    rm sys-patch.zip
+#fi
 
-### 新增sysDvr
-curl -sL https://raw.githubusercontent.com/Zhuwenxue2002/SwitchPlugins/main/plugins/SysDVR.zip -o SysDVR.zip
-if [ $? -ne 0 ]; then
-    echo "SysDVR download\033[31m failed\033[0m."
-else
-    echo "SysDVR download\033[32m success\033[0m."
-    unzip -oq SysDVR.zip
-    rm SysDVR.zip
-fi
+#### 新增sysDvr
+#curl -sL https://raw.githubusercontent.com/Zhuwenxue2002/SwitchPlugins/main/plugins/SysDVR.zip -o SysDVR.zip
+#if [ $? -ne 0 ]; then
+#    echo "SysDVR download\033[31m failed\033[0m."
+#else
+#    echo "SysDVR download\033[32m success\033[0m."
+#    unzip -oq SysDVR.zip
+#    rm SysDVR.zip
+#fi
 
 # -------------------------------------------
 cat >> ../description.txt << ENDOFFILE
@@ -637,12 +649,7 @@ ovl-sysmodules
 StatusMonitor
 sys-clk
 ReverseNX-RT
-ldn_mitm
-emuiibo
 QuickNTP
-sys-tune
-sys-patch
-sysDvr
 ENDOFFILE
 
 ### Rename hekate_ctcaer_*.bin to payload.bin
