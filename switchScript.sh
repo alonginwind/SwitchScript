@@ -438,7 +438,7 @@ fi
 
 ### Fetch lastest hb-appstore from https://github.com/fortheusers/hb-appstore/releases/latest
 curl -sL https://api.github.com/repos/fortheusers/hb-appstore/releases/latest \
-  | jq '.tag_name' \
+  | jq '.name' \
   | xargs -I {} echo {} >> ../description.txt
 curl -sL https://api.github.com/repos/fortheusers/hb-appstore/releases/latest \
   | grep -oP '"browser_download_url": "\Khttps://[^"]*appstore.nro"' \
