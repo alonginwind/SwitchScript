@@ -69,8 +69,6 @@ fi
 
 
 
-
-
 #### Fetch latest Hekate + Nyx from https://github.com/CTCaer/hekate/releases/latest
 #curl -sL https://api.github.com/repos/CTCaer/hekate/releases/latest \
 #  | jq '.name' \
@@ -437,6 +435,39 @@ else
     mkdir -p ./switch/NX-Shell
     mv NX-Shell.nro ./switch/NX-Shell
 fi
+
+### Fetch lastest MissionControl from https://github.com/ndeadly/MissionControl/releases/latest
+curl -sL https://api.github.com/repos/ndeadly/MissionControl/releases/latest \
+  | jq '.name' \
+  | xargs -I {} echo {} >> ../description.txt
+curl -sL https://api.github.com/repos/ndeadly/MissionControl/releases/latest \
+  | grep -oP '"browser_download_url": "\Khttps://[^"]*MissionControl[^"]*.zip"' \
+  | sed 's/"//g' \
+  | xargs -I {} curl -sL {} -o MissionControl.zip
+if [ $? -ne 0 ]; then
+    echo "MissionControl download\033[31m failed\033[0m."
+else
+    echo "MissionControl download\033[32m success\033[0m."
+    unzip -oq MissionControl.zip
+    rm MissionControl.zip
+fi
+
+### Fetch lastest sys-con from https://github.com/o0Zz/sys-con/releases/latest
+curl -sL https://api.github.com/repos/o0Zz/sys-con/releases/latest \
+  | jq '.name' \
+  | xargs -I {} echo {} >> ../description.txt
+curl -sL https://api.github.com/repos/o0Zz/sys-con/releases/latest \
+  | grep -oP '"browser_download_url": "\Khttps://[^"]*sys-con[^"]*.zip"' \
+  | sed 's/"//g' \
+  | xargs -I {} curl -sL {} -o sys-con.zip
+if [ $? -ne 0 ]; then
+    echo "sys-con download\033[31m failed\033[0m."
+else
+    echo "sys-con download\033[32m success\033[0m."
+    unzip -oq sys-con.zip
+    rm sys-con.zip
+fi
+
 
 ### Fetch nx-ovlloader
 ### Tesla加载器，目前只能用仓库方案，没联系上zdm大佬

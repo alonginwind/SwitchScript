@@ -31,6 +31,7 @@
     - [x] Mod管理器`SimpleModManager`[From Here](https://github.com/nadrino/SimpleModManager)
     - [x] 串流工具 `Moonlight` [From Here](https://github.com/XITRIX/Moonlight-Switch/releases/latest)
     - [x] 文件管理工具 `NX-Shell`[From Here](https://github.com/joel16/NX-Shell)
+    - [x] 手柄支持工具 `sys-con&MissionControl` [From Here](https://github.com/o0Zz/sys-con)&[From Here](https://github.com/ndeadly/MissionControl)
   - Tesla
     - [x] 加载器 `nx-ovlloader` [From Here](https://www.tekqart.com/thread-222735-1-1.html)
     - [x] 初始菜单 `Tesla-Menu` [From Here](https://www.tekqart.com/thread-222735-1-1.html)
@@ -73,10 +74,13 @@
 - 增加nro插件Mod管理器
 - 增加nro插件NX-Shell（可以不用连接电脑去删文件了！！！）
 - 增加ovl插件sysDvr
+- 增加插件MissionControl（蓝牙手柄连接）
+- 增加nro插件sys-con（usb手柄链接） *这个插件不是官方原版，而是一个新分支！！*
 
 ## 更新日志
 
 - 2024-06-12：fork脚本建立项目，由小白二次开发
+- 2024-6-13：新增插件MissionControl，sys-con
 
 # Tesla
 
