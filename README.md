@@ -147,13 +147,13 @@ https://www.bilibili.com/video/BV1V7421Z71A/?spm_id_from=333.337.search-card.all
 
 上面也提到了，switch本身系统玩串流不如安卓和Ubuntu，但原因之一还是性能释放的问题，*串流对网络，pc性能都有很大影响*
 
-现在moonlight-switch也日益晚上，如果萌新不想折腾安装其他系统的话，大可尝试一下
+现在moonlight-switch也日益完善，如果萌新不想折腾安装其他系统的话，大可尝试一下
 
 [LizardByte/Sunshine: Self-hosted game stream host for Moonlight. (github.com)](https://github.com/LizardByte/Sunshine)
 
 sunshine的安装也都是一键式安装，优化也越来越好了
 
-打开普通超频，把三大件拉满，谁不想尝试在switch上面玩以下原神呢？
+打开普通超频，把三大件拉满，谁不想尝试在switch上面玩一下原神呢？
 
 ---
 
