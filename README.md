@@ -32,7 +32,7 @@
     - [x] Mod管理器`SimpleModManager`[From Here](https://github.com/nadrino/SimpleModManager)
     - [x] 串流工具 `Moonlight` [From Here](https://github.com/XITRIX/Moonlight-Switch/releases/latest)
     - [x] 文件管理工具 `NX-Shell`[From Here](https://github.com/joel16/NX-Shell)
-    - [x] 手柄支持工具 `sys-con&MissionControl` [From Here](https://github.com/o0Zz/sys-con)&[From Here](https://github.com/ndeadly/MissionControl)
+    - [x] 手柄支持工具 `MissionControl`[From Here](https://github.com/ndeadly/MissionControl)
     - [x] nro插件商店 `hb-appstore` [From Here](https://github.com/fortheusers/hb-appstore)
   - Tesla
     - [x] 加载器 `nx-ovlloader` [From Here](https://www.tekqart.com/thread-222735-1-1.html)
@@ -86,6 +86,7 @@
 - 2024-06-12：fork脚本建立项目，由小白二次开发
 - 2024-06-13：新增插件MissionControl，sys-con
 - 2024-06-13：新增插件hb-appstore
+- 2024-06-19：精简插件sys-con（因为更新不及时无法支持1.7.1版本启动）
 
 # Tesla
 
@@ -167,3 +168,5 @@ psp中不乏有很多好游戏，例如：战神、啪嗒砰、乐克乐克、�
 实测普通超频拉满的情况下，战神开三倍大部分场景也可以满帧运行
 
 这已经是一个及格的答卷了，也推荐大家去尝试一下
+
+# 关于网络和2123-0011
