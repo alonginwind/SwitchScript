@@ -96,6 +96,8 @@
 - 2024-06-19：精简插件sys-con（因为更新不及时无法支持1.7.1版本启动）
 - 2024-06-20：恢复sys-con集成，更改sys-patch和sigpatchs为gba论坛版本
 - 2024-06-20：尝试精简掉sigpatches，因为每一个版本都更新太费劲了，开系统还容易提示错误（紧跟huangqian8大佬的脚步）
+- 2024-06-20：删除hekate_ipl.ini in /bootloader/文件中的 kip1patch=nosigchk字段，因为精简了sigpatches，不删除这个字段开机会报一个小错误
+
 
 # Tesla
 
