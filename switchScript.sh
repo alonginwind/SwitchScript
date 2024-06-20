@@ -117,7 +117,7 @@ fi
 #fi
 
 ### Fetch SigPatches.zip 此版本为gba论坛版本，更新支持18.1.0
-curl -sL https://raw.githubusercontent.com/Zhuwenxue2002/SwitchPlugins/main/plugins/sigpatches.zip -o ovl-sysmodules.zip
+curl -sL https://raw.githubusercontent.com/Zhuwenxue2002/SwitchPlugins/main/plugins/sigpatches.zip -o sigpatches.zip
 if [ $? -ne 0 ]; then
     echo "sigpatches download\033[31m failed\033[0m."
 else
