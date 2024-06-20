@@ -537,7 +537,7 @@ StatusMonitor
 sys-clk-overlay
 ReverseNX-RT
 QuickNTP
-sys-patch
+sys-patch-overlay
 ENDOFFILE
 
 ### Fetch EdiZon
@@ -662,7 +662,7 @@ StatusMonitor
 sys-clk
 ReverseNX-RT
 QuickNTP
-sys-patch
+sys-patch-overlay
 ENDOFFILE
 
 ### Rename hekate_ctcaer_*.bin to payload.bin
