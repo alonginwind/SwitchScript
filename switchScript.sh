@@ -106,12 +106,22 @@ else
     rm logo.zip
 fi
 
-### Fetch latest SigPatches.zip
-curl -sL https://sigmapatches.su/sigpatches.zip?03.29.2024 -o sigpatches.zip
+#### Fetch latest SigPatches.zip
+#curl -sL https://sigmapatches.su/sigpatches.zip?03.29.2024 -o sigpatches.zip
+#if [ $? -ne 0 ]; then
+#    echo "SigPatches download\033[31m failed\033[0m."
+#else
+#    echo "SigPatches download\033[32m success\033[0m."
+#    unzip -oq sigpatches.zip
+#    rm sigpatches.zip
+#fi
+
+### Fetch SigPatches.zip 此版本为gba论坛版本，更新支持18.1.0
+curl -sL https://raw.githubusercontent.com/Zhuwenxue2002/SwitchPlugins/main/plugins/sigpatches.zip -o ovl-sysmodules.zip
 if [ $? -ne 0 ]; then
-    echo "SigPatches download\033[31m failed\033[0m."
+    echo "sigpatches download\033[31m failed\033[0m."
 else
-    echo "SigPatches download\033[32m success\033[0m."
+    echo "sigpatches download\033[32m success\033[0m."
     unzip -oq sigpatches.zip
     rm sigpatches.zip
 fi
@@ -468,21 +478,21 @@ else
     rm MissionControl.zip
 fi
 
-### Fetch lastest sys-con from https://github.com/o0Zz/sys-con/releases/latest
-#curl -sL https://api.github.com/repos/o0Zz/sys-con/releases/latest \
-#  | jq '.name' \
-#  | xargs -I {} echo {} >> ../description.txt
-#curl -sL https://api.github.com/repos/o0Zz/sys-con/releases/latest \
-#  | grep -oP '"browser_download_url": "\Khttps://[^"]*sys-con[^"]*.zip"' \
-#  | sed 's/"//g' \
-#  | xargs -I {} curl -sL {} -o sys-con.zip
-#if [ $? -ne 0 ]; then
-#    echo "sys-con download\033[31m failed\033[0m."
-#else
-#    echo "sys-con download\033[32m success\033[0m."
-#    unzip -oq sys-con.zip
-#    rm sys-con.zip
-#fi
+## Fetch lastest sys-con from https://github.com/o0Zz/sys-con/releases/latest
+curl -sL https://api.github.com/repos/o0Zz/sys-con/releases/latest \
+  | jq '.name' \
+  | xargs -I {} echo {} >> ../description.txt
+curl -sL https://api.github.com/repos/o0Zz/sys-con/releases/latest \
+  | grep -oP '"browser_download_url": "\Khttps://[^"]*sys-con[^"]*.zip"' \
+  | sed 's/"//g' \
+  | xargs -I {} curl -sL {} -o sys-con.zip
+if [ $? -ne 0 ]; then
+    echo "sys-con download\033[31m failed\033[0m."
+else
+    echo "sys-con download\033[32m success\033[0m."
+    unzip -oq sys-con.zip
+    rm sys-con.zip
+fi
 
 
 ### Fetch nx-ovlloader
@@ -622,6 +632,7 @@ fi
 #fi
 
 ### Fetch sys-patch
+### 更新版本为gba仓库版本呢，不用东方的包了
 curl -sL https://raw.githubusercontent.com/Zhuwenxue2002/SwitchPlugins/main/plugins/sys-patch.zip -o sys-patch.zip
 if [ $? -ne 0 ]; then
     echo "sys-patch download\033[31m failed\033[0m."

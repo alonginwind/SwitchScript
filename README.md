@@ -1,5 +1,11 @@
 # 大气层个人整合包生成脚本
 
+**_支持系统版本：18.1.0_**
+
+**_支持大气层版本：1.7.1_**
+
+**_支持hekate版本：6.2.0_**
+
 - 此项目脚本fork自[huangqian8/SwitchScript: 大气层个人整合包生成脚本 (github.com)](https://github.com/huangqian8/SwitchScript)，由xiaobai进行精简
 
 - 整合包明天四点会自动生成并发布，萌新玩家可直接下载使用
@@ -33,6 +39,7 @@
     - [x] 串流工具 `Moonlight` [From Here](https://github.com/XITRIX/Moonlight-Switch/releases/latest)
     - [x] 文件管理工具 `NX-Shell`[From Here](https://github.com/joel16/NX-Shell)
     - [x] 手柄支持工具 `MissionControl`[From Here](https://github.com/ndeadly/MissionControl)
+    - [x] 有线手柄支持工具 `sys-con` [From Here](https://github.com/o0Zz/sys-con)
     - [x] nro插件商店 `hb-appstore` [From Here](https://github.com/fortheusers/hb-appstore)
   - Tesla
     - [x] 加载器 `nx-ovlloader` [From Here](https://www.tekqart.com/thread-222735-1-1.html)
@@ -73,7 +80,7 @@
 - 精简ldn_mitm（一般是远程联机配合lanplay用）
 - 精简sys-tune（一般我听游戏音乐，用不上背景音乐）
 - 精简CommonProblemResolver插件（这个插件真的是坑惨我了！！！！）
-- 
+
 - 增加nro插件Mod管理器
 - 增加nro插件NX-Shell（可以不用连接电脑去删文件了！！！）
 - 增加ovl插件sysDvr（又精简了，这玩意除了直播没啥用）
@@ -87,6 +94,7 @@
 - 2024-06-13：新增插件MissionControl，sys-con
 - 2024-06-13：新增插件hb-appstore
 - 2024-06-19：精简插件sys-con（因为更新不及时无法支持1.7.1版本启动）
+- 2024-06-20：恢复sys-con集成，更改sys-patch和sigpatchs为gba论坛版本
 
 # Tesla
 
@@ -106,7 +114,7 @@ huangqian8大佬使用的Tesla方案是zdm大佬的tesla方案终极版
 - **ReverseNX-RT和FPSLocker**
 - **EdiZon-SE和EdiZon-Overlay**
 - **sys-clk**
-- **sys-patch** ：东方大佬版本
+- **sys-patch** 
 
 # sigpatch + sys patch
 
