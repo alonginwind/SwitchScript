@@ -97,6 +97,18 @@ else
     mv DBI.nro ./switch/DBI
 fi
 
+### Fetch dbi config
+curl -sL https://api.github.com/repos/rashevskyv/dbi/releases/latest \
+  | grep -oP '"browser_download_url": "\Khttps://[^"]*dbi.config"' \
+  | sed 's/"//g' \
+  | xargs -I {} curl -sL {} -o dbi.config
+if [ $? -ne 0 ]; then
+    echo "dbi.config download\033[31m failed\033[0m."
+else
+    echo "dbi.config download\033[32m success\033[0m."
+    mv dbi.config ./switch/DBI
+fi
+
 ### Fetch NX-Activity-Log from https://github.com/zdm65477730/NX-Activity-Log/releases/latest
 curl -sL https://api.github.com/repos/zdm65477730/NX-Activity-Log/releases/latest \
   | jq '.tag_name' \
