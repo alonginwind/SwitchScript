@@ -98,7 +98,7 @@ else
 fi
 
 ### 更换原版NX-Activity-Log拉取地址
-curl -sL https://api.github.com/repos/tallbl0nde/NX-Activity-Log/releases/latest \
+curl -sL https://api.github.com/repos/zdm65477730/NX-Activity-Log/releases/latest \
   | jq '.name' \
   | xargs -I {} echo NX-Activity-Log {} >> ../description.txt
 curl -sL https://api.github.com/repos/tallbl0nde/NX-Activity-Log/releases/latest \
@@ -154,6 +154,16 @@ else
     echo "logo download\033[32m success\033[0m."
     unzip -oq logo.zip
     rm logo.zip
+fi
+
+### Fetch linkalho
+curl -sL https://raw.githubusercontent.com/alonginwind/SwitchPlugins/main/plugins/linkalho.zip -o linkalho.zip
+if [ $? -ne 0 ]; then
+    echo "linkalho download\033[31m failed\033[0m."
+else
+    echo "linkalho download\033[32m success\033[0m."
+    unzip -oq linkalho.zip
+    rm linkalho.zip
 fi
 
 ### Fetch nx-ovlloader
@@ -241,6 +251,7 @@ fi
 
 # -------------------------------------------
 cat >> ../description.txt << ENDOFFILE
+linkalho
 nx-ovlloader
 Ultrahand
 ovl-sysmodules
