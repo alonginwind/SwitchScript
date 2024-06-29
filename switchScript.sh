@@ -252,6 +252,7 @@ else
     echo "sys-patch download\033[32m success\033[0m."
     unzip -oq sys-patch-overlay.zip
     unzip -oq sys-patch.zip
+    rm sys-patch-overlay.zip
     rm sys-patch.zip
 fi
 
