@@ -35,7 +35,7 @@
     - [x] 系统监视 `StatusMonitor` [From Here](https://www.tekqart.com/thread-222735-1-1.html)
     - [x] 系统超频  `sys-clk`[From Here](https://www.tekqart.com/thread-222735-1-1.html)
     - [x] 时间同步 `QuickNTP` [From Here](https://www.tekqart.com/thread-222735-1-1.html)
-    - [x] 系统补丁 `sys-patch` [From Here](https://gbatemp.net/threads/sigpatches-for-atmosphere-hekate-fss0-fusee-package3.571543/)
+    - [x] 系统补丁 `sys-patch` [From Here](https://github.com/impeeza/sys-patch/releases)
 - 文件操作：
   - [x] 移动 `fusee.bin` 至 `bootloader/payloads` 文件夹
   - [x] 将 `hekate_ctcaer_*.bin` 重命名为 `payload.bin`
