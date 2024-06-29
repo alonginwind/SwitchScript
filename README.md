@@ -6,13 +6,11 @@
 
 **_支持hekate版本：6.2.0_**
 
-- 此项目脚本fork自[huangqian8/SwitchScript: 大气层个人整合包生成脚本 (github.com)](https://github.com/huangqian8/SwitchScript)，由xiaobai进行精简
+- 此项目脚本fork自[Zhuwenxue2002/SwitchScript: 大气层个人整合包生成脚本 (github.com)](https://github.com/Zhuwenxue2002/SwitchScript)
 
-- 整合包明天四点会自动生成并发布，萌新玩家可直接下载使用
+- 整合包每天四点会自动生成并发布，萌新玩家可直接下载使用
 
-- 使用linu系统运行则需要jq依赖，可fork到自己仓库重新开发
-
-- 虽然表面上精简了超级多的插件，但是整合包内置了hb-appstore，可以进入此插件自行下载所需插件
+- 使用linux系统运行则需要jq依赖，可fork到自己仓库重新开发
 
 ## 功能如下
 
