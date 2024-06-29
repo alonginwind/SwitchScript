@@ -66,16 +66,6 @@ else
     rm hekate.zip
 fi
 
-### Fetch logo
-curl -sL https://raw.githubusercontent.com/Zhuwenxue2002/SwitchPlugins/main/theme/logo.zip -o logo.zip
-if [ $? -ne 0 ]; then
-    echo "logo download\033[31m failed\033[0m."
-else
-    echo "logo download\033[32m success\033[0m."
-    unzip -oq logo.zip
-    rm logo.zip
-fi
-
 ### Fetch latest Lockpick_RCM.bin from https://github.com/Decscots/Lockpick_RCM/releases/latest
 curl -sL https://api.github.com/repos/Decscots/Lockpick_RCM/releases/latest \
   | jq '.tag_name' \
@@ -139,39 +129,6 @@ else
     mv JKSV.nro ./switch/JKSV
 fi
 
-### Fetch lastest SimpleModDownloader from https://github.com/PoloNX/SimpleModDownloader/releases/latest
-curl -sL https://api.github.com/repos/PoloNX/SimpleModDownloader/releases/latest \
-  | jq '.tag_name' \
-  | xargs -I {} echo SimpleModDownloader {} >> ../description.txt
-curl -sL https://api.github.com/repos/PoloNX/SimpleModDownloader/releases/latest \
-  | grep -oP '"browser_download_url": "\Khttps://[^"]*SimpleModDownloader.nro"' \
-  | sed 's/"//g' \
-  | xargs -I {} curl -sL {} -o SimpleModDownloader.nro
-if [ $? -ne 0 ]; then
-    echo "SimpleModDownloader download\033[31m failed\033[0m."
-else
-    echo "SimpleModDownloader download\033[32m success\033[0m."
-    mkdir -p ./switch/SimpleModDownloader
-    mv SimpleModDownloader.nro ./switch/SimpleModDownloader
-fi
-
-### Fetch lastest SimpleModManager from https://github.com/nadrino/SimpleModManager/releases/latest
-curl -sL https://api.github.com/repos/nadrino/SimpleModManager/releases/latest \
-  | jq '.tag_name' \
-  | xargs -I {} echo SimpleModManager {} >> ../description.txt
-curl -sL https://api.github.com/repos/nadrino/SimpleModManager/releases/latest \
-  | grep -oP '"browser_download_url": "\Khttps://[^"]*SimpleModManager.nro"' \
-  | sed 's/"//g' \
-  | xargs -I {} curl -sL {} -o SimpleModManager.nro
-if [ $? -ne 0 ]; then
-    echo "SimpleModManager download\033[31m failed\033[0m."
-else
-    echo "SimpleModManager download\033[32m success\033[0m."
-    mkdir -p ./switch/SimpleModManager
-    mkdir -p ./mods
-    mv SimpleModManager.nro ./switch/SimpleModManager
-fi
-
 ### Fetch lastest Moonlight from https://github.com/XITRIX/Moonlight-Switch/releases/latest
 curl -sL https://api.github.com/repos/XITRIX/Moonlight-Switch/releases/latest \
   | jq '.tag_name' \
@@ -189,9 +146,19 @@ else
 fi
 
 
+### Fetch logo
+curl -sL https://raw.githubusercontent.com/alonginwind/SwitchPlugins/main/theme/logo.zip -o logo.zip
+if [ $? -ne 0 ]; then
+    echo "logo download\033[31m failed\033[0m."
+else
+    echo "logo download\033[32m success\033[0m."
+    unzip -oq logo.zip
+    rm logo.zip
+fi
+
 ### Fetch nx-ovlloader
 ### Tesla加载器，目前只能用仓库方案，没联系上zdm大佬
-curl -sL https://raw.githubusercontent.com/Zhuwenxue2002/SwitchPlugins/main/plugins/nx-ovlloader.zip -o nx-ovlloader.zip
+curl -sL https://raw.githubusercontent.com/alonginwind/SwitchPlugins/main/plugins/nx-ovlloader.zip -o nx-ovlloader.zip
 if [ $? -ne 0 ]; then
     echo "nx-ovlloader download\033[31m failed\033[0m."
 else
@@ -200,42 +167,19 @@ else
     rm nx-ovlloader.zip
 fi
 
-### Write config.ini in /config/tesla
-cat > ./config/tesla/config.ini << ENDOFFILE
-[tesla]
-; 特斯拉自定义快捷键。
-key_combo=L+ZL+R
-ENDOFFILE
-if [ $? -ne 0 ]; then
-    echo "Writing config.ini in ./config/tesla\033[31m failed\033[0m."
-else
-    echo "Writing config.ini in ./config/tesla\033[32m success\033[0m."
-fi
-
 ### Fetch Tesla-Menu
 ### Tesla初始菜单，目前只能用仓库方案，没联系上zdm大佬
-curl -sL https://raw.githubusercontent.com/Zhuwenxue2002/SwitchPlugins/main/plugins/Tesla-Menu.zip -o Tesla-Menu.zip
+curl -sL https://raw.githubusercontent.com/alonginwind/SwitchPlugins/main/plugins/Ultrahand.zip -o Ultrahand.zip
 if [ $? -ne 0 ]; then
-    echo "Tesla-Menu download\033[31m failed\033[0m."
+    echo "Ultrahand.zip download\033[31m failed\033[0m."
 else
-    echo "Tesla-Menu download\033[32m success\033[0m."
-    unzip -oq Tesla-Menu.zip
-    rm Tesla-Menu.zip
+    echo "Ultrahand.zip download\033[32m success\033[0m."
+    unzip -oq Ultrahand.zip
+    rm Ultrahand.zip
 fi
 
-### Write sort.cfg in /config/Tesla-Menu/sort.cfg
-cat > ./config/Tesla-Menu/sort.cfg << ENDOFFILE
-EdiZon
-ovl-sysmodules
-StatusMonitor
-sys-clk-overlay
-ReverseNX-RT
-QuickNTP
-sys-patch-overlay
-ENDOFFILE
-
 ### Fetch ovl-sysmodules
-curl -sL https://raw.githubusercontent.com/Zhuwenxue2002/SwitchPlugins/main/plugins/ovl-sysmodules.zip -o ovl-sysmodules.zip
+curl -sL https://raw.githubusercontent.com/alonginwind/SwitchPlugins/main/plugins/ovl-sysmodules.zip -o ovl-sysmodules.zip
 if [ $? -ne 0 ]; then
     echo "ovl-sysmodules download\033[31m failed\033[0m."
 else
@@ -245,7 +189,7 @@ else
 fi
 
 ### Fetch StatusMonitor
-curl -sL https://raw.githubusercontent.com/Zhuwenxue2002/SwitchPlugins/main/plugins/StatusMonitor.zip -o StatusMonitor.zip
+curl -sL https://raw.githubusercontent.com/alonginwind/SwitchPlugins/main/plugins/StatusMonitor.zip -o StatusMonitor.zip
 if [ $? -ne 0 ]; then
     echo "StatusMonitor download\033[31m failed\033[0m."
 else
@@ -255,7 +199,7 @@ else
 fi
 
 ### Fetch sys-clk
-curl -sL https://raw.githubusercontent.com/Zhuwenxue2002/SwitchPlugins/main/plugins/sys-clk.zip -o sys-clk.zip
+curl -sL https://raw.githubusercontent.com/alonginwind/SwitchPlugins/main/plugins/sys-clk.zip -o sys-clk.zip
 if [ $? -ne 0 ]; then
     echo "sys-clk download\033[31m failed\033[0m."
 else
@@ -265,7 +209,7 @@ else
 fi
 
 ### Fetch emuiibo
-curl -sL https://raw.githubusercontent.com/Zhuwenxue2002/SwitchPlugins/main/plugins/emuiibo.zip -o emuiibo.zip
+curl -sL https://raw.githubusercontent.com/alonginwind/SwitchPlugins/main/plugins/emuiibo.zip -o emuiibo.zip
 if [ $? -ne 0 ]; then
     echo "emuiibo download\033[31m failed\033[0m."
 else
@@ -275,7 +219,7 @@ else
 fi
 
 ### Fetch QuickNTP
-curl -sL https://raw.githubusercontent.com/Zhuwenxue2002/SwitchPlugins/main/plugins/QuickNTP.zip -o QuickNTP.zip
+curl -sL https://raw.githubusercontent.com/alonginwind/SwitchPlugins/main/plugins/QuickNTP.zip -o QuickNTP.zip
 if [ $? -ne 0 ]; then
     echo "QuickNTP download\033[31m failed\033[0m."
 else
@@ -286,7 +230,7 @@ fi
 
 ### Fetch sys-patch
 ### 更新版本为gba仓库版本呢，不用东方的包了
-curl -sL https://raw.githubusercontent.com/Zhuwenxue2002/SwitchPlugins/main/plugins/sys-patch.zip -o sys-patch.zip
+curl -sL https://raw.githubusercontent.com/alonginwind/SwitchPlugins/main/plugins/sys-patch.zip -o sys-patch.zip
 if [ $? -ne 0 ]; then
     echo "sys-patch download\033[31m failed\033[0m."
 else
@@ -298,7 +242,7 @@ fi
 # -------------------------------------------
 cat >> ../description.txt << ENDOFFILE
 nx-ovlloader
-Tesla-Menu
+Ultrahand
 ovl-sysmodules
 StatusMonitor
 sys-clk
