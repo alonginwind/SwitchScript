@@ -17,7 +17,7 @@ if [ -e description.txt ]; then
 fi
 #mkdir -p ./SwitchSD/atmosphere/config
 mkdir -p ./SwitchSD/atmosphere/hosts
-mkdir -p ./SwitchSD/config/tesla
+#mkdir -p ./SwitchSD/config/tesla
 cd SwitchSD
 
 
@@ -146,16 +146,6 @@ else
 fi
 
 
-### Fetch logo
-curl -sL https://raw.githubusercontent.com/alonginwind/SwitchPlugins/main/theme/logo.zip -o logo.zip
-if [ $? -ne 0 ]; then
-    echo "logo download\033[31m failed\033[0m."
-else
-    echo "logo download\033[32m success\033[0m."
-    unzip -oq logo.zip
-    rm logo.zip
-fi
-
 ### Fetch linkalho
 curl -sL https://raw.githubusercontent.com/alonginwind/SwitchPlugins/main/plugins/linkalho.zip -o linkalho.zip
 if [ $? -ne 0 ]; then
@@ -164,6 +154,16 @@ else
     echo "linkalho download\033[32m success\033[0m."
     unzip -oq linkalho.zip
     rm linkalho.zip
+fi
+
+### Fetch logo
+curl -sL https://raw.githubusercontent.com/alonginwind/SwitchPlugins/main/theme/logo.zip -o logo.zip
+if [ $? -ne 0 ]; then
+    echo "logo download\033[31m failed\033[0m."
+else
+    echo "logo download\033[32m success\033[0m."
+    unzip -oq logo.zip
+    rm logo.zip
 fi
 
 ### Fetch nx-ovlloader
@@ -197,6 +197,16 @@ else
     rm ovl-sysmodules.zip
 fi
 
+### Fetch emuiibo
+curl -sL https://raw.githubusercontent.com/alonginwind/SwitchPlugins/main/plugins/emuiibo.zip -o emuiibo.zip
+if [ $? -ne 0 ]; then
+    echo "emuiibo download\033[31m failed\033[0m."
+else
+    echo "emuiibo download\033[32m success\033[0m."
+    unzip -oq emuiibo.zip
+    rm emuiibo.zip
+fi
+
 ### Fetch StatusMonitor
 curl -sL https://raw.githubusercontent.com/alonginwind/SwitchPlugins/main/plugins/StatusMonitor.zip -o StatusMonitor.zip
 if [ $? -ne 0 ]; then
@@ -215,16 +225,6 @@ else
     echo "sys-clk download\033[32m success\033[0m."
     unzip -oq sys-clk.zip
     rm sys-clk.zip
-fi
-
-### Fetch emuiibo
-curl -sL https://raw.githubusercontent.com/alonginwind/SwitchPlugins/main/plugins/emuiibo.zip -o emuiibo.zip
-if [ $? -ne 0 ]; then
-    echo "emuiibo download\033[31m failed\033[0m."
-else
-    echo "emuiibo download\033[32m success\033[0m."
-    unzip -oq emuiibo.zip
-    rm emuiibo.zip
 fi
 
 ### Fetch QuickNTP
@@ -254,6 +254,7 @@ linkalho
 nx-ovlloader
 Ultrahand
 ovl-sysmodules
+emuiibo
 StatusMonitor
 sys-clk
 QuickNTP
