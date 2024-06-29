@@ -282,38 +282,25 @@ cat > ./bootloader/hekate_ipl.ini << ENDOFFILE
 [config]
 autoboot=0
 autoboot_list=0
-bootwait=3
+bootwait=2
 backlight=100
 noticker=0
 autohosoff=1
 autonogc=1
-updater2p=0
+updater2p=1
 bootprotect=0
-
-[Fusee]
-icon=bootloader/res/icon_ams.bmp
-payload=bootloader/payloads/fusee.bin
-
-[CFW (emuMMC)]
+[虚拟系统]
+fss0=atmosphere/package3
 emummcforce=1
-fss0=atmosphere/package3
 atmosphere=1
-icon=bootloader/res/icon_Atmosphere_emunand.bmp
-id=cfw-emu
-
-[CFW (sysMMC)]
-emummc_force_disable=1
+icon=bootloader/res/icon_emummc.bmp
+id=emummc
+[正版系统]
 fss0=atmosphere/package3
-atmosphere=1
-icon=bootloader/res/icon_Atmosphere_sysnand.bmp
-id=cfw-sys
-
-[Stock SysNAND]
 emummc_force_disable=1
-fss0=atmosphere/package3
-icon=bootloader/res/icon_stock.bmp
 stock=1
-id=ofw-sys
+icon=bootloader/res/icon_normal.bmp
+id=normal
 ENDOFFILE
 if [ $? -ne 0 ]; then
     echo "Writing hekate_ipl.ini in ./bootloader/ directory\033[31m failed\033[0m."
@@ -329,7 +316,7 @@ debugmode_user=0
 disable_user_exception_handlers=0
 enable_user_pmu_access=0
 ; 控制真实系统启用隐身模式。
-blank_prodinfo_sysmmc=1
+blank_prodinfo_sysmmc=0
 ; 控制虚拟系统启用隐身模式。
 blank_prodinfo_emummc=1
 allow_writing_to_cal_sysmmc=0
@@ -348,6 +335,8 @@ cat > ./atmosphere/hosts/emummc.txt << ENDOFFILE
 # 屏蔽任天堂服务器
 127.0.0.1 *nintendo.*
 127.0.0.1 *nintendo-europe.com
+127.0.0.1 *nintendowifi.net
+127.0.0.1 *nintendods.cz
 127.0.0.1 *nintendoswitch.*
 127.0.0.1 ads.doubleclick.net
 127.0.0.1 s.ytimg.com
@@ -370,7 +359,7 @@ fi
 
 ### Write override_config.ini in /atmosphere/config
 cat > ./atmosphere/config/override_config.ini << ENDOFFILE
-[hbl_config] 
+[hbl_config]
 program_id_0=010000000000100D
 override_address_space=39_bit
 ; 按住R键点击相册进入HBL自制软件界面。
@@ -382,48 +371,45 @@ else
     echo "Writing override_config.ini in ./atmosphere/config\033[32m success\033[0m."
 fi
 
+### Write stratosphere.ini in /atmosphere/config
+cat > ./atmosphere/config/stratosphere.ini << ENDOFFILE
+[stratosphere]
+nogc = 1
+ENDOFFILE
+if [ $? -ne 0 ]; then
+    echo "Writing stratosphere.ini in ./atmosphere/config\033[31m failed\033[0m."
+else
+    echo "Writing stratosphere.ini in ./atmosphere/config\033[32m success\033[0m."
+fi
+
 ### Write system_settings.ini in /atmosphere/config
 cat > ./atmosphere/config/system_settings.ini << ENDOFFILE
 [eupld]
 ; 禁用将错误报告上传到任天堂
 upload_enabled = u8!0x0
-
+[usb]
+; 开启USB3.0，尾数改为0是关闭
+usb30_force_enabled = u8!0x1
 [ro]
 ; 控制 RO 是否应简化其对 NRO 的验证。
 ; （注意：这通常不是必需的，可以使用 IPS 补丁。
 ease_nro_restriction = u8!0x1
-
 [atmosphere]
-; 是否自动开启所有金手指。0=关。1=开。
-dmnt_cheats_enabled_by_default = u8!0x0
-
-; 如果你希望大气记住你上次金手指状态，请删除下方；号
-dmnt_always_save_cheat_toggles = u8!0x1
-
 ; 如果大气崩溃，10秒后自动重启
 ; 1秒=1000毫秒，转换16进制
 fatal_auto_reboot_interval = u64!0x2710
-
 ; 使电源菜单的“重新启动”按钮重新启动到payload
 ; 设置"normal"正常重启l 设置"rcm"重启RCM，
-; power_menu_reboot_function = str!payload
-
+power_menu_reboot_function = str!payload
+; 是否自动开启所有金手指。0=关。1=开。
+dmnt_cheats_enabled_by_default = u8!0x0
+; 如果你希望大气记住你上次金手指状态，请删除下方；号
+dmnt_always_save_cheat_toggles = u8!0x1
 ; 启动90DNS与任天堂服务器屏蔽
 enable_dns_mitm = u8!0x1
 add_defaults_to_dns_hosts = u8!0x1
-
 ; 是否将蓝牙配对数据库用与虚拟系统
 enable_external_bluetooth_db = u8!0x1
-
-[usb]
-; 开启USB3.0，尾数改为0是关闭
-usb30_force_enabled = u8!0x1
-
-[tc]
-sleep_enabled = u8!0x0
-holdable_tskin = u32!0xEA60
-tskin_rate_table_console = str!”[[-1000000, 28000, 0, 0], [28000, 42000, 0, 51], [42000, 48000, 51, 102], [48000, 55000, 102, 153], [55000, 60000, 153, 255], [60000, 68000, 255, 255]]”
-tskin_rate_table_handheld = str!”[[-1000000, 28000, 0, 0], [28000, 42000, 0, 51], [42000, 48000, 51, 102], [48000, 55000, 102, 153], [55000, 60000, 153, 255], [60000, 68000, 255, 255]]”
 ENDOFFILE
 if [ $? -ne 0 ]; then
     echo "Writing system_settings.ini in ./atmosphere/config\033[31m failed\033[0m."
