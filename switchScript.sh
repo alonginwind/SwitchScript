@@ -97,9 +97,9 @@ else
     mv DBI.nro ./switch/DBI
 fi
 
-### 更换原版NX-Activity-Log拉取地址
+### Fetch NX-Activity-Log from https://github.com/zdm65477730/NX-Activity-Log/releases/latest
 curl -sL https://api.github.com/repos/zdm65477730/NX-Activity-Log/releases/latest \
-  | jq '.name' \
+  | jq '.tag_name' \
   | xargs -I {} echo NX-Activity-Log {} >> ../description.txt
 curl -sL https://api.github.com/repos/tallbl0nde/NX-Activity-Log/releases/latest \
   | grep -oP '"browser_download_url": "\Khttps://[^"]*NX-Activity-Log.nro"' \
@@ -237,16 +237,25 @@ else
     rm QuickNTP.zip
 fi
 
+
 ### Fetch sys-patch
-### 更新版本为gba仓库版本呢，不用东方的包了
-curl -sL https://raw.githubusercontent.com/alonginwind/SwitchPlugins/main/plugins/sys-patch.zip -o sys-patch.zip
+curl -sL https://api.github.com/repos/impeeza/sys-patch/releases/latest \
+  | jq '.tag_name' \
+  | xargs -I {} echo sys-patch {} >> ../description.txt
+curl -sL https://api.github.com/repos/impeeza/sys-patch/releases/latest \
+  | grep -oP '"browser_download_url": "\Khttps://[^"]*sys-patch*.zip"' \
+  | sed 's/"//g' \
+  | xargs -I {} curl -sL {} -o sys-patch-overlay.zip
 if [ $? -ne 0 ]; then
     echo "sys-patch download\033[31m failed\033[0m."
 else
     echo "sys-patch download\033[32m success\033[0m."
+    unzip -oq sys-patch-overlay.zip
     unzip -oq sys-patch.zip
+    rm sys-patch-overlay.zip
     rm sys-patch.zip
 fi
+
 
 # -------------------------------------------
 cat >> ../description.txt << ENDOFFILE
@@ -427,6 +436,7 @@ fi
 rm -f switch/haze.nro
 rm -f switch/reboot_to_hekate.nro
 rm -f switch/reboot_to_payload.nro
+
 
 ### End
 cp ../description.txt ./
