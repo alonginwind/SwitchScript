@@ -177,7 +177,6 @@ else
     rm nx-ovlloader.zip
 fi
 
-### Fetch Tesla-Menu
 ### Tesla初始菜单，目前只能用仓库方案，没联系上zdm大佬
 curl -sL https://raw.githubusercontent.com/alonginwind/SwitchPlugins/main/plugins/Ultrahand.zip -o Ultrahand.zip
 if [ $? -ne 0 ]; then
@@ -335,7 +334,7 @@ else
     echo "Writing exosphere.ini in root of SD card\033[32m success\033[0m."
 fi
 
-### Write emummc.txt & sysmmc.txt in /atmosphere/hosts
+### Write emummc.txt in /atmosphere/hosts
 cat > ./atmosphere/hosts/emummc.txt << ENDOFFILE
 # 屏蔽任天堂服务器
 127.0.0.1 *nintendo.*
@@ -353,7 +352,7 @@ cat > ./atmosphere/hosts/emummc.txt << ENDOFFILE
 95.216.149.205 *ctest.cdn.nintendo.net
 95.216.149.205 *90dns.test
 ENDOFFILE
-cp ./atmosphere/hosts/emummc.txt ./atmosphere/hosts/sysmmc.txt
+#cp ./atmosphere/hosts/emummc.txt ./atmosphere/hosts/sysmmc.txt
 if [ $? -ne 0 ]; then
     echo "Writing emummc.txt and sysmmc.txt in ./atmosphere/hosts\033[31m failed\033[0m."
 else
