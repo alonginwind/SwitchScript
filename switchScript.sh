@@ -243,7 +243,7 @@ curl -sL https://api.github.com/repos/impeeza/sys-patch/releases/latest \
   | jq '.tag_name' \
   | xargs -I {} echo sys-patch {} >> ../description.txt
 curl -sL https://api.github.com/repos/impeeza/sys-patch/releases/latest \
-  | grep -oP '"browser_download_url": "\Khttps://[^"]*sys-patch*.zip"' \
+  | grep -oP '"browser_download_url": "\Khttps://[^"]*sys-patch[^"]*.zip"' \
   | sed 's/"//g' \
   | xargs -I {} curl -sL {} -o sys-patch-overlay.zip
 if [ $? -ne 0 ]; then
