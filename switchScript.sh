@@ -428,6 +428,10 @@ rm -f switch/haze.nro
 rm -f switch/reboot_to_hekate.nro
 rm -f switch/reboot_to_payload.nro
 
+### End
+cp ../description.txt ./
+find ./atmosphere/ * -exec touch -t 202401010000 {} \;
+
 # -------------------------------------------
 
 echo ""
