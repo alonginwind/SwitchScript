@@ -43,6 +43,7 @@
   - [x] 在根目录中创建 `exosphere.ini`
   - [x] 在 `atmosphere/hosts` 文件夹中创建 `emummc.txt`
   - [x] 在 `atmosphere/config` 文件夹中创建 `override_config.ini`
+  - [x] 在 `atmosphere/config` 文件夹中创建 `stratosphere.ini`
   - [x] 在 `atmosphere/config` 文件夹中创建 `system_settings.ini`
   - [x] 删除 `switch` 文件夹中 `haze.nro`
   - [x] 删除 `switch` 文件夹中 `reboot_to_hekate.nro`
