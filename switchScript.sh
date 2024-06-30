@@ -126,22 +126,6 @@ else
     rm NX-Activity-Log.zip
 fi
 
-### Fetch lastest JKSV from https://github.com/J-D-K/JKSV/releases/latest
-curl -sL https://api.github.com/repos/J-D-K/JKSV/releases/latest \
-  | jq '.name' \
-  | xargs -I {} echo JKSV {} >> ../description.txt
-curl -sL https://api.github.com/repos/J-D-K/JKSV/releases/latest \
-  | grep -oP '"browser_download_url": "\Khttps://[^"]*JKSV.nro"' \
-  | sed 's/"//g' \
-  | xargs -I {} curl -sL {} -o JKSV.nro
-if [ $? -ne 0 ]; then
-    echo "JKSV download\033[31m failed\033[0m."
-else
-    echo "JKSV download\033[32m success\033[0m."
-    mkdir -p ./switch/JKSV
-    mv JKSV.nro ./switch/JKSV
-fi
-
 ### Fetch lastest Moonlight from https://github.com/XITRIX/Moonlight-Switch/releases/latest
 curl -sL https://api.github.com/repos/XITRIX/Moonlight-Switch/releases/latest \
   | jq '.tag_name' \
@@ -156,6 +140,38 @@ else
     echo "Moonlight download\033[32m success\033[0m."
     mkdir -p ./switch/Moonlight-Switch
     mv Moonlight-Switch.nro ./switch/Moonlight-Switch
+fi
+
+### Fetch lastest SimpleModDownloader from https://github.com/PoloNX/SimpleModDownloader/releases/latest
+curl -sL https://api.github.com/repos/PoloNX/SimpleModDownloader/releases/latest \
+  | jq '.tag_name' \
+  | xargs -I {} echo SimpleModDownloader {} >> ../description.txt
+curl -sL https://api.github.com/repos/PoloNX/SimpleModDownloader/releases/latest \
+  | grep -oP '"browser_download_url": "\Khttps://[^"]*SimpleModDownloader.nro"' \
+  | sed 's/"//g' \
+  | xargs -I {} curl -sL {} -o SimpleModDownloader.nro
+if [ $? -ne 0 ]; then
+    echo "SimpleModDownloader download\033[31m failed\033[0m."
+else
+    echo "SimpleModDownloader download\033[32m success\033[0m."
+    mkdir -p ./switch/SimpleModDownloader
+    mv SimpleModDownloader.nro ./switch/SimpleModDownloader
+fi
+
+### Fetch lastest SimpleModManager from https://github.com/nadrino/SimpleModManager/releases/latest
+curl -sL https://api.github.com/repos/nadrino/SimpleModManager/releases/latest \
+  | jq '.name' \
+  | xargs -I {} echo {} >> ../description.txt
+curl -sL https://api.github.com/repos/nadrino/SimpleModManager/releases/latest \
+  | grep -oP '"browser_download_url": "\Khttps://[^"]*SimpleModManager.nro"' \
+  | sed 's/"//g' \
+  | xargs -I {} curl -sL {} -o SimpleModManager.nro
+if [ $? -ne 0 ]; then
+    echo "SimpleModManager download\033[31m failed\033[0m."
+else
+    echo "SimpleModManager download\033[32m success\033[0m."
+    mkdir -p ./mods
+    mv SimpleModManager.nro ./switch
 fi
 
 
