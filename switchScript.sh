@@ -114,7 +114,7 @@ fi
 curl -sL https://api.github.com/repos/zdm65477730/NX-Activity-Log/releases/latest \
   | jq '.tag_name' \
   | xargs -I {} echo NX-Activity-Log {} >> ../description.txt
-curl -sL https://api.github.com/repos/tallbl0nde/NX-Activity-Log/releases/latest \
+curl -sL https://api.github.com/repos/zdm65477730/NX-Activity-Log/releases/latest \
   | grep -oP '"browser_download_url": "\Khttps://[^"]*NX-Activity-Log.nro"' \
   | sed 's/"//g' \
   | xargs -I {} curl -sL {} -o NX-Activity-Log.nro
