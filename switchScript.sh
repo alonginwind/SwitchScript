@@ -377,6 +377,10 @@ program_id_0=010000000000100D
 override_address_space=39_bit
 ; 按住R键点击相册进入HBL自制软件界面。
 override_key_0=R
+override_any_app=true
+override_any_app_key=R
+override_any_app_address_space=39_bit
+path=atmosphere/hbl.nsp
 ENDOFFILE
 if [ $? -ne 0 ]; then
     echo "Writing override_config.ini in ./atmosphere/config\033[31m failed\033[0m."
