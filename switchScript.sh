@@ -18,6 +18,7 @@ fi
 #mkdir -p ./SwitchSD/atmosphere/config
 mkdir -p ./SwitchSD/atmosphere/hosts
 #mkdir -p ./SwitchSD/config/tesla
+mkdir -p ./SwitchSD/switch/.overlays
 cd SwitchSD
 
 
@@ -179,7 +180,13 @@ else
 fi
 
 ### Fetch nx-ovlloader
-curl -sL https://raw.githubusercontent.com/alonginwind/SwitchPlugins/main/plugins/nx-ovlloader.zip -o nx-ovlloader.zip
+curl -sL https://api.github.com/repos/WerWolv/nx-ovlloader/releases/latest \
+  | jq '.tag_name' \
+  | xargs -I {} echo nx-ovlloader {} >> ../description.txt
+curl -sL https://api.github.com/repos/WerWolv/nx-ovlloader/releases/latest \
+  | grep -oP '"browser_download_url": "\Khttps://[^"]*nx-ovlloader.zip"' \
+  | sed 's/"//g' \
+  | xargs -I {} curl -sL {} -o nx-ovlloader.zip
 if [ $? -ne 0 ]; then
     echo "nx-ovlloader download\033[31m failed\033[0m."
 else
@@ -209,8 +216,8 @@ if [ $? -ne 0 ]; then
     echo "lang download\033[31m failed\033[0m."
 else
     echo "lang download\033[32m success\033[0m."
-    unzip -oq logo.zip
-    rm logo.zip
+    unzip -oq lang.zip
+    rm lang.zip
 fi
 
 ### Fetch ovl-sysmodules
@@ -286,7 +293,6 @@ fi
 # -------------------------------------------
 cat >> ../description.txt << ENDOFFILE
 linkalho
-nx-ovlloader
 ovl-sysmodules
 emuiibo
 StatusMonitor
