@@ -115,15 +115,15 @@ curl -sL https://api.github.com/repos/zdm65477730/NX-Activity-Log/releases/lates
   | jq '.tag_name' \
   | xargs -I {} echo NX-Activity-Log {} >> ../description.txt
 curl -sL https://api.github.com/repos/zdm65477730/NX-Activity-Log/releases/latest \
-  | grep -oP '"browser_download_url": "\Khttps://[^"]*NX-Activity-Log.nro"' \
+  | grep -oP '"browser_download_url": "\Khttps://[^"]*NX-Activity-Log.zip"' \
   | sed 's/"//g' \
-  | xargs -I {} curl -sL {} -o NX-Activity-Log.nro
+  | xargs -I {} curl -sL {} -o NX-Activity-Log.zip
 if [ $? -ne 0 ]; then
     echo "NX-Activity-Log download\033[31m failed\033[0m."
 else
     echo "NX-Activity-Log download\033[32m success\033[0m."
-    mkdir -p ./switch/NX-Activity-Log
-    mv NX-Activity-Log.nro ./switch/NX-Activity-Log
+    unzip -oq NX-Activity-Log.zip
+    rm NX-Activity-Log.zip
 fi
 
 ### Fetch lastest JKSV from https://github.com/J-D-K/JKSV/releases/latest
