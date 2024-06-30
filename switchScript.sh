@@ -179,7 +179,6 @@ else
 fi
 
 ### Fetch nx-ovlloader
-### Tesla加载器，目前只能用仓库方案，没联系上zdm大佬
 curl -sL https://raw.githubusercontent.com/alonginwind/SwitchPlugins/main/plugins/nx-ovlloader.zip -o nx-ovlloader.zip
 if [ $? -ne 0 ]; then
     echo "nx-ovlloader download\033[31m failed\033[0m."
@@ -189,14 +188,29 @@ else
     rm nx-ovlloader.zip
 fi
 
-### Tesla初始菜单，目前只能用仓库方案，没联系上zdm大佬
-curl -sL https://raw.githubusercontent.com/alonginwind/SwitchPlugins/main/plugins/Ultrahand.zip -o Ultrahand.zip
+### Fetch Ultrahand-overlay
+curl -sL https://api.github.com/repos/ppkantorski/Ultrahand-Overlay/releases/latest \
+  | jq '.name' \
+  | xargs -I {} echo {} >> ../description.txt
+curl -sL https://api.github.com/repos/ppkantorski/Ultrahand-Overlay/releases/latest \
+  | grep -oP '"browser_download_url": "\Khttps://[^"]*ovlmenu.ovl"' \
+  | sed 's/"//g' \
+  | xargs -I {} curl -sL {} -o ovlmenu.ovl
 if [ $? -ne 0 ]; then
-    echo "Ultrahand.zip download\033[31m failed\033[0m."
+    echo "ovlmenu.ovl download\033[31m failed\033[0m."
 else
-    echo "Ultrahand.zip download\033[32m success\033[0m."
-    unzip -oq Ultrahand.zip
-    rm Ultrahand.zip
+    echo "ovlmenu.ovl download\033[32m success\033[0m."
+    mv ovlmenu.ovl ./switch/.overlays/
+fi
+
+### Fetch lang
+curl -sL https://raw.githubusercontent.com/alonginwind/SwitchPlugins/main/theme/lang.zip -o lang.zip
+if [ $? -ne 0 ]; then
+    echo "lang download\033[31m failed\033[0m."
+else
+    echo "lang download\033[32m success\033[0m."
+    unzip -oq logo.zip
+    rm logo.zip
 fi
 
 ### Fetch ovl-sysmodules
@@ -273,13 +287,11 @@ fi
 cat >> ../description.txt << ENDOFFILE
 linkalho
 nx-ovlloader
-Ultrahand
 ovl-sysmodules
 emuiibo
 StatusMonitor
 sys-clk
 QuickNTP
-sys-patch-overlay
 ENDOFFILE
 
 ### Rename hekate_ctcaer_*.bin to payload.bin
@@ -375,8 +387,7 @@ cat > ./atmosphere/config/override_config.ini << ENDOFFILE
 [hbl_config]
 program_id_0=010000000000100D
 override_address_space=39_bit
-; 按住R键点击相册进入HBL自制软件界面。
-override_key_0=R
+override_key_0=!R
 override_any_app=true
 override_any_app_key=R
 override_any_app_address_space=39_bit
