@@ -17,7 +17,7 @@
 - 下载最新
   - 大气层三件套
     - [x] `Atmosphere + Fusee` [From Here](https://github.com/Atmosphere-NX/Atmosphere/releases/latest)
-    - [x] `EasyWrold汉化整合版`[From Here](https://github.com/easyworld/hekate/releases/latest)
+    - [x] `EasyWrold汉化整合版` [From Here](https://github.com/easyworld/hekate/releases/latest)
   - Payload插件
     - [x] 主机系统的密钥提取工具 `Lockpick_RCM` [From Here](https://github.com/Decscots/Lockpick_RCM/releases/latest)
   - Nro插件
@@ -25,8 +25,8 @@
     - [x] 游戏游玩时间记录工具 `NX-Activity-Log` [From Here](https://github.com/zdm65477730/NX-Activity-Log/releases/latest)
     - [x] 串流工具 `Moonlight` [From Here](https://github.com/XITRIX/Moonlight-Switch/releases/latest)
     - [x] Mod下载器 `SimpleModDownloader` [From Here](https://github.com/PoloNX/SimpleModDownloader/releases/latest)
-    - [x] Mod管理器 `SimpleModManager`[From Here](https://github.com/nadrino/SimpleModManager/releases/latest)
-    - [x] 离线账号关联工具 `linkalho`[From Here](https://www.tekqart.com/forum.php?mod=viewthread&tid=370855&highlight=linkalho&_dsign=f569c76c)
+    - [x] Mod管理器 `SimpleModManager` [From Here](https://github.com/nadrino/SimpleModManager/releases/latest)
+    - [x] 离线账号关联工具 `linkalho` [From Here](https://www.tekqart.com/forum.php?mod=viewthread&tid=370855&highlight=linkalho&_dsign=f569c76c)
   - Tesla
     - [x] 加载器 `nx-ovlloader` [From Here](https://github.com/WerWolv/nx-ovlloader/releases/latest)
     - [x] 初始菜单 `Ultrahand` [From Here](https://github.com/ppkantorski/Ultrahand-Overlay/releases/latest)
@@ -34,7 +34,7 @@
     - [x] 系统模块 `ovl-sysmodules` [From Here](https://www.tekqart.com/thread-222735-1-1.html)
     - [x] 系统模块 `emuiibo` [From Here](https://www.tekqart.com/thread-222735-1-1.html)
     - [x] 系统监视 `StatusMonitor` [From Here](https://www.tekqart.com/thread-222735-1-1.html)
-    - [x] 系统超频  `sys-clk`[From Here](https://www.tekqart.com/thread-222735-1-1.html)
+    - [x] 系统超频  `sys-clk` [From Here](https://www.tekqart.com/thread-222735-1-1.html)
     - [x] 时间同步 `QuickNTP` [From Here](https://www.tekqart.com/thread-222735-1-1.html)
     - [x] 系统补丁 `sys-patch` [From Here](https://github.com/impeeza/sys-patch/releases/latest)
 - 文件操作：
@@ -49,4 +49,4 @@
   - [x] 删除 `switch` 文件夹中 `haze.nro`
   - [x] 删除 `switch` 文件夹中 `reboot_to_hekate.nro`
   - [x] 删除 `switch` 文件夹中 `reboot_to_payload.nro`
-  - [x] 删除 `config` 文件夹中 `sys-clk`
+  - [x] 删除 `config` 文件夹中 `sys-clk` 的文件夹
