@@ -49,3 +49,4 @@
   - [x] 删除 `switch` 文件夹中 `haze.nro`
   - [x] 删除 `switch` 文件夹中 `reboot_to_hekate.nro`
   - [x] 删除 `switch` 文件夹中 `reboot_to_payload.nro`
+  - [x] 删除 `config` 文件夹中 `sys-clk`
