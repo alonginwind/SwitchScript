@@ -8,7 +8,7 @@
 
 - 此项目脚本fork自[Zhuwenxue2002/SwitchScript: 大气层个人整合包生成脚本 (github.com)](https://github.com/Zhuwenxue2002/SwitchScript)
 
-- 整合包每天四点会自动生成并发布，自用
+- 整合包每天四点会自动生成并发布
 
 - 使用linux系统运行则需要jq依赖，可fork到自己仓库重新开发
 
