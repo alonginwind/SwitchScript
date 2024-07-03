@@ -121,16 +121,6 @@ else
     rm linkalho.zip
 fi
 
-### Fetch logo
-curl -sL https://raw.githubusercontent.com/alonginwind/SwitchPlugins/main/theme/logo.zip -o logo.zip
-if [ $? -ne 0 ]; then
-    echo "logo download\033[31m failed\033[0m."
-else
-    echo "logo download\033[32m success\033[0m."
-    unzip -oq logo.zip
-    rm logo.zip
-fi
-
 ### Fetch nx-ovlloader
 curl -sL https://api.github.com/repos/WerWolv/nx-ovlloader/releases/latest \
   | jq '.tag_name' \
@@ -163,12 +153,15 @@ else
 fi
 
 ### Fetch lang
-curl -sL https://raw.githubusercontent.com/alonginwind/SwitchPlugins/main/theme/lang.zip -o lang.zip
+curl -sL https://api.github.com/repos/ppkantorski/Ultrahand-Overlay/releases/latest \
+  | grep -oP '"browser_download_url": "\Khttps://[^"]*lang.zip"' \
+  | sed 's/"//g' \
+  | xargs -I {} curl -sL {} -o lang.zip
 if [ $? -ne 0 ]; then
     echo "lang download\033[31m failed\033[0m."
 else
     echo "lang download\033[32m success\033[0m."
-    unzip -oq lang.zip
+    unzip -oq lang.zip -d ./config/ultrahand/lang/
     rm lang.zip
 fi
 
