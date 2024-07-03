@@ -161,6 +161,7 @@ if [ $? -ne 0 ]; then
     echo "lang download\033[31m failed\033[0m."
 else
     echo "lang download\033[32m success\033[0m."
+    mkdir -p ./config/ultrahand/lang
     unzip -oq lang.zip -d ./config/ultrahand/lang/
     rm lang.zip
 fi
