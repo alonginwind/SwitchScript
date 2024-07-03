@@ -110,70 +110,6 @@ else
     mv dbi.config ./switch/DBI
 fi
 
-### Fetch NX-Activity-Log from https://github.com/zdm65477730/NX-Activity-Log/releases/latest
-curl -sL https://api.github.com/repos/zdm65477730/NX-Activity-Log/releases/latest \
-  | jq '.tag_name' \
-  | xargs -I {} echo NX-Activity-Log {} >> ../description.txt
-curl -sL https://api.github.com/repos/zdm65477730/NX-Activity-Log/releases/latest \
-  | grep -oP '"browser_download_url": "\Khttps://[^"]*NX-Activity-Log.zip"' \
-  | sed 's/"//g' \
-  | xargs -I {} curl -sL {} -o NX-Activity-Log.zip
-if [ $? -ne 0 ]; then
-    echo "NX-Activity-Log download\033[31m failed\033[0m."
-else
-    echo "NX-Activity-Log download\033[32m success\033[0m."
-    unzip -oq NX-Activity-Log.zip
-    rm NX-Activity-Log.zip
-fi
-
-### Fetch lastest Moonlight from https://github.com/XITRIX/Moonlight-Switch/releases/latest
-curl -sL https://api.github.com/repos/XITRIX/Moonlight-Switch/releases/latest \
-  | jq '.tag_name' \
-  | xargs -I {} echo Moonlight {} >> ../description.txt
-curl -sL https://api.github.com/repos/XITRIX/Moonlight-Switch/releases/latest \
-  | grep -oP '"browser_download_url": "\Khttps://[^"]*Moonlight-Switch.nro"' \
-  | sed 's/"//g' \
-  | xargs -I {} curl -sL {} -o Moonlight-Switch.nro
-if [ $? -ne 0 ]; then
-    echo "Moonlight download\033[31m failed\033[0m."
-else
-    echo "Moonlight download\033[32m success\033[0m."
-    mkdir -p ./switch/Moonlight-Switch
-    mv Moonlight-Switch.nro ./switch/Moonlight-Switch
-fi
-
-### Fetch lastest SimpleModDownloader from https://github.com/PoloNX/SimpleModDownloader/releases/latest
-curl -sL https://api.github.com/repos/PoloNX/SimpleModDownloader/releases/latest \
-  | jq '.tag_name' \
-  | xargs -I {} echo SimpleModDownloader {} >> ../description.txt
-curl -sL https://api.github.com/repos/PoloNX/SimpleModDownloader/releases/latest \
-  | grep -oP '"browser_download_url": "\Khttps://[^"]*SimpleModDownloader.nro"' \
-  | sed 's/"//g' \
-  | xargs -I {} curl -sL {} -o SimpleModDownloader.nro
-if [ $? -ne 0 ]; then
-    echo "SimpleModDownloader download\033[31m failed\033[0m."
-else
-    echo "SimpleModDownloader download\033[32m success\033[0m."
-    mkdir -p ./switch/SimpleModDownloader
-    mv SimpleModDownloader.nro ./switch/SimpleModDownloader
-fi
-
-### Fetch lastest SimpleModManager from https://github.com/nadrino/SimpleModManager/releases/latest
-curl -sL https://api.github.com/repos/nadrino/SimpleModManager/releases/latest \
-  | jq '.name' \
-  | xargs -I {} echo {} >> ../description.txt
-curl -sL https://api.github.com/repos/nadrino/SimpleModManager/releases/latest \
-  | grep -oP '"browser_download_url": "\Khttps://[^"]*SimpleModManager.nro"' \
-  | sed 's/"//g' \
-  | xargs -I {} curl -sL {} -o SimpleModManager.nro
-if [ $? -ne 0 ]; then
-    echo "SimpleModManager download\033[31m failed\033[0m."
-else
-    echo "SimpleModManager download\033[32m success\033[0m."
-    mkdir -p ./mods
-    mv SimpleModManager.nro ./switch
-fi
-
 
 ### Fetch linkalho
 curl -sL https://raw.githubusercontent.com/alonginwind/SwitchPlugins/main/plugins/linkalho.zip -o linkalho.zip
@@ -276,16 +212,6 @@ else
     rm sys-clk.zip
 fi
 
-### Fetch QuickNTP
-curl -sL https://raw.githubusercontent.com/alonginwind/SwitchPlugins/main/plugins/QuickNTP.zip -o QuickNTP.zip
-if [ $? -ne 0 ]; then
-    echo "QuickNTP download\033[31m failed\033[0m."
-else
-    echo "QuickNTP download\033[32m success\033[0m."
-    unzip -oq QuickNTP.zip
-    rm QuickNTP.zip
-fi
-
 
 ### Fetch sys-patch
 curl -sL https://api.github.com/repos/impeeza/sys-patch/releases/latest \
@@ -313,7 +239,6 @@ ovl-sysmodules
 emuiibo
 StatusMonitor
 sys-clk
-QuickNTP
 ENDOFFILE
 
 ### Rename hekate_ctcaer_*.bin to payload.bin
