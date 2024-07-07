@@ -1,11 +1,5 @@
 # 大气层个人整合包生成脚本
 
-**_支持系统版本：18.1.0_**
-
-**_支持大气层版本：1.7.1_**
-
-**_支持hekate版本：6.2.0_**
-
 - 此项目脚本fork自[Zhuwenxue2002/SwitchScript: 大气层个人整合包生成脚本 (github.com)](https://github.com/Zhuwenxue2002/SwitchScript)
 
 - 整合包每天四点会自动生成并发布
