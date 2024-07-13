@@ -207,6 +207,22 @@ else
 fi
 
 
+### Fetch SaltySD
+curl -sL https://api.github.com/repos/masagrator/SaltyNX/releases/latest \
+  | jq '.name' \
+  | xargs -I {} echo {} >> ../description.txt
+curl -sL https://api.github.com/repos/masagrator/SaltyNX/releases/latest \
+  | grep -oP '"browser_download_url": "\Khttps://[^"]*SaltyNX[^"]*.zip"' \
+  | sed 's/"//g' \
+  | xargs -I {} curl -sL {} -o SaltySD.zip
+if [ $? -ne 0 ]; then
+    echo "SaltySD download\033[31m failed\033[0m."
+else
+    echo "SaltySD download\033[32m success\033[0m."
+    unzip -oq SaltySD.zip
+    rm SaltySD.zip
+fi
+
 ### Fetch sys-patch
 curl -sL https://api.github.com/repos/impeeza/sys-patch/releases/latest \
   | jq '.tag_name' \
