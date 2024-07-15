@@ -127,7 +127,6 @@ else
     echo "nx-ovlloader download\033[32m success\033[0m."
     unzip -oq nx-ovlloader.zip
     rm nx-ovlloader.zip
-    rm -rf ./config/tesla
 fi
 
 ### Fetch Tesla-Menu
