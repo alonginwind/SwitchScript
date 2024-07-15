@@ -139,15 +139,6 @@ else
     rm Tesla-Menu.zip
 fi
 
-### Write sort.cfg in /config/Tesla-Menu/sort.cfg
-cat > ./config/Tesla-Menu/sort.cfg << ENDOFFILE
-ovl-sysmodules
-sys-clk-overlay
-StatusMonitor
-emuiibo
-sys-patch
-ENDOFFILE
-
 ### Fetch ovl-sysmodules
 curl -sL https://raw.githubusercontent.com/alonginwind/SwitchPlugins/main/plugins/ovl-sysmodules.zip -o ovl-sysmodules.zip
 if [ $? -ne 0 ]; then
@@ -390,7 +381,6 @@ fi
 rm -f switch/haze.nro
 rm -f switch/reboot_to_hekate.nro
 rm -f switch/reboot_to_payload.nro
-rm -rf config/sys-clk/
 
 
 ### End
