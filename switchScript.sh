@@ -122,13 +122,7 @@ else
 fi
 
 ### Fetch nx-ovlloader
-curl -sL https://api.github.com/repos/WerWolv/nx-ovlloader/releases/latest \
-  | jq '.tag_name' \
-  | xargs -I {} echo nx-ovlloader {} >> ../description.txt
-curl -sL https://api.github.com/repos/WerWolv/nx-ovlloader/releases/latest \
-  | grep -oP '"browser_download_url": "\Khttps://[^"]*nx-ovlloader.zip"' \
-  | sed 's/"//g' \
-  | xargs -I {} curl -sL {} -o nx-ovlloader.zip
+curl -sL https://raw.githubusercontent.com/alonginwind/SwitchPlugins/main/plugins/nx-ovlloader.zip -o nx-ovlloader.zip
 if [ $? -ne 0 ]; then
     echo "nx-ovlloader download\033[31m failed\033[0m."
 else
@@ -137,34 +131,24 @@ else
     rm nx-ovlloader.zip
 fi
 
-### Fetch Ultrahand-overlay
-curl -sL https://api.github.com/repos/ppkantorski/Ultrahand-Overlay/releases/latest \
-  | jq '.name' \
-  | xargs -I {} echo {} >> ../description.txt
-curl -sL https://api.github.com/repos/ppkantorski/Ultrahand-Overlay/releases/latest \
-  | grep -oP '"browser_download_url": "\Khttps://[^"]*ovlmenu.ovl"' \
-  | sed 's/"//g' \
-  | xargs -I {} curl -sL {} -o ovlmenu.ovl
+### Fetch Tesla-Menu
+curl -sL https://raw.githubusercontent.com/alonginwind/SwitchPlugins/main/plugins/Tesla-Menu.zip -o Tesla-Menu.zip
 if [ $? -ne 0 ]; then
-    echo "ovlmenu.ovl download\033[31m failed\033[0m."
+    echo "Tesla-Menu download\033[31m failed\033[0m."
 else
-    echo "ovlmenu.ovl download\033[32m success\033[0m."
-    mv ovlmenu.ovl ./switch/.overlays/
+    echo "Tesla-Menu download\033[32m success\033[0m."
+    unzip -oq Tesla-Menu.zip
+    rm Tesla-Menu.zip
 fi
 
-### Fetch lang
-curl -sL https://api.github.com/repos/ppkantorski/Ultrahand-Overlay/releases/latest \
-  | grep -oP '"browser_download_url": "\Khttps://[^"]*lang.zip"' \
-  | sed 's/"//g' \
-  | xargs -I {} curl -sL {} -o lang.zip
-if [ $? -ne 0 ]; then
-    echo "lang download\033[31m failed\033[0m."
-else
-    echo "lang download\033[32m success\033[0m."
-    mkdir -p ./config/ultrahand/lang
-    unzip -oq lang.zip -d ./config/ultrahand/lang/
-    rm lang.zip
-fi
+### Write sort.cfg in /config/Tesla-Menu/sort.cfg
+cat > ./config/Tesla-Menu/sort.cfg << ENDOFFILE
+ovl-sysmodules
+sys-clk-overlay
+StatusMonitor
+emuiibo
+sys-patch
+ENDOFFILE
 
 ### Fetch ovl-sysmodules
 curl -sL https://raw.githubusercontent.com/alonginwind/SwitchPlugins/main/plugins/ovl-sysmodules.zip -o ovl-sysmodules.zip
@@ -176,14 +160,14 @@ else
     rm ovl-sysmodules.zip
 fi
 
-### Fetch emuiibo
-curl -sL https://raw.githubusercontent.com/alonginwind/SwitchPlugins/main/plugins/emuiibo.zip -o emuiibo.zip
+### Fetch sys-clk
+curl -sL https://raw.githubusercontent.com/alonginwind/SwitchPlugins/main/plugins/sys-clk.zip -o sys-clk.zip
 if [ $? -ne 0 ]; then
-    echo "emuiibo download\033[31m failed\033[0m."
+    echo "sys-clk download\033[31m failed\033[0m."
 else
-    echo "emuiibo download\033[32m success\033[0m."
-    unzip -oq emuiibo.zip
-    rm emuiibo.zip
+    echo "sys-clk download\033[32m success\033[0m."
+    unzip -oq sys-clk.zip
+    rm sys-clk.zip
 fi
 
 ### Fetch StatusMonitor
@@ -196,14 +180,14 @@ else
     rm StatusMonitor.zip
 fi
 
-### Fetch sys-clk
-curl -sL https://raw.githubusercontent.com/alonginwind/SwitchPlugins/main/plugins/sys-clk.zip -o sys-clk.zip
+### Fetch emuiibo
+curl -sL https://raw.githubusercontent.com/alonginwind/SwitchPlugins/main/plugins/emuiibo.zip -o emuiibo.zip
 if [ $? -ne 0 ]; then
-    echo "sys-clk download\033[31m failed\033[0m."
+    echo "emuiibo download\033[31m failed\033[0m."
 else
-    echo "sys-clk download\033[32m success\033[0m."
-    unzip -oq sys-clk.zip
-    rm sys-clk.zip
+    echo "emuiibo download\033[32m success\033[0m."
+    unzip -oq emuiibo.zip
+    rm emuiibo.zip
 fi
 
 
@@ -245,10 +229,12 @@ fi
 # -------------------------------------------
 cat >> ../description.txt << ENDOFFILE
 linkalho
+nx-ovlloader
+Tesla-Menu
 ovl-sysmodules
-emuiibo
-StatusMonitor
 sys-clk
+StatusMonitor
+emuiibo
 ENDOFFILE
 
 ### Rename hekate_ctcaer_*.bin to payload.bin
