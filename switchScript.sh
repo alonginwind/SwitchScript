@@ -15,9 +15,7 @@ fi
 if [ -e description.txt ]; then
   rm -rf description.txt
 fi
-#mkdir -p ./SwitchSD/atmosphere/config
 mkdir -p ./SwitchSD/atmosphere/hosts
-#mkdir -p ./SwitchSD/config/tesla
 mkdir -p ./SwitchSD/switch/.overlays
 cd SwitchSD
 
@@ -129,6 +127,7 @@ else
     echo "nx-ovlloader download\033[32m success\033[0m."
     unzip -oq nx-ovlloader.zip
     rm nx-ovlloader.zip
+    rm -rf ./config/tesla
 fi
 
 ### Fetch Tesla-Menu
