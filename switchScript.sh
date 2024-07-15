@@ -381,6 +381,8 @@ fi
 rm -f switch/haze.nro
 rm -f switch/reboot_to_hekate.nro
 rm -f switch/reboot_to_payload.nro
+rm -rf ./config/sys-clk
+rm -rf ./config/Tesla-Menu
 
 
 ### End
