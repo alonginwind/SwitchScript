@@ -149,6 +149,16 @@ else
     rm ovl-sysmodules.zip
 fi
 
+### Fetch emuiibo
+curl -sL https://raw.githubusercontent.com/alonginwind/SwitchPlugins/main/plugins/emuiibo.zip -o emuiibo.zip
+if [ $? -ne 0 ]; then
+    echo "emuiibo download\033[31m failed\033[0m."
+else
+    echo "emuiibo download\033[32m success\033[0m."
+    unzip -oq emuiibo.zip
+    rm emuiibo.zip
+fi
+
 ### Fetch sys-clk
 curl -sL https://raw.githubusercontent.com/alonginwind/SwitchPlugins/main/plugins/sys-clk.zip -o sys-clk.zip
 if [ $? -ne 0 ]; then
@@ -167,16 +177,6 @@ else
     echo "StatusMonitor download\033[32m success\033[0m."
     unzip -oq StatusMonitor.zip
     rm StatusMonitor.zip
-fi
-
-### Fetch emuiibo
-curl -sL https://raw.githubusercontent.com/alonginwind/SwitchPlugins/main/plugins/emuiibo.zip -o emuiibo.zip
-if [ $? -ne 0 ]; then
-    echo "emuiibo download\033[31m failed\033[0m."
-else
-    echo "emuiibo download\033[32m success\033[0m."
-    unzip -oq emuiibo.zip
-    rm emuiibo.zip
 fi
 
 
@@ -221,9 +221,9 @@ linkalho
 nx-ovlloader
 Tesla-Menu
 ovl-sysmodules
+emuiibo
 sys-clk
 StatusMonitor
-emuiibo
 ENDOFFILE
 
 ### Rename hekate_ctcaer_*.bin to payload.bin
