@@ -116,7 +116,7 @@ curl -sL https://api.github.com/repos/ppkantorski/nx-ovlloader/releases/latest \
   | grep -oP '"browser_download_url": "\Khttps://[^"]*+.zip"' \
   | sed 's/"//g' \
   | xargs -I {} curl -sL {} -o nx-ovlloader.zip
-  if [ $? -ne 0 ]; then
+if [ $? -ne 0 ]; then
     echo "nx-ovlloader download\033[31m failed\033[0m."
 else
     echo "nx-ovlloader download\033[32m success\033[0m."
