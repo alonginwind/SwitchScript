@@ -16,7 +16,7 @@
     - [x] 主机系统的密钥提取工具 `Lockpick_RCM` [From Here](https://github.com/Kofysh/Lockpick_RCM/releases/latest)
   - Nro插件
     - [x] 游戏安装，存档管理和文件传输工具 `DBI` [From Here](https://github.com/rashevskyv/dbi/releases/latest)
-    - [x] 离线账号关联工具 `linkalho` [From Here](https://www.tekqart.com/forum.php?mod=viewthread&tid=370855&highlight=linkalho&_dsign=f569c76c)
+    - [x] 游玩时间记录工具 `NX-Activity-Log` [From Here](https://github.com/zdm65477730/NX-Activity-Log/releases/latest)
   - Tesla
     - [x] 加载器 `nx-ovlloader` [From Here](https://github.com/ppkantorski/nx-ovlloader/releases/latest)
     - [x] 初始菜单 `Ultrahand Overlay` [From Here](https://github.com/ppkantorski/Ultrahand-Overlay/releases/latest)
