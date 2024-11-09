@@ -108,6 +108,22 @@ else
     mv dbi.config ./switch/DBI
 fi
 
+### Fetch lastest NX-Activity-Log from https://github.com/zdm65477730/NX-Activity-Log/releases/latest
+curl -sL https://api.github.com/repos/zdm65477730/NX-Activity-Log/releases/latest \
+  | jq '.tag_name' \
+  | xargs -I {} echo NX-Activity-Log {} >> ../description.txt
+curl -sL https://api.github.com/repos/zdm65477730/NX-Activity-Log/releases/latest \
+  | grep -oP '"browser_download_url": "\Khttps://[^"]*.nro"' \
+  | sed 's/"//g' \
+  | xargs -I {} curl -sL {} -o NX-Activity-Log.nro
+if [ $? -ne 0 ]; then
+    echo "NX-Activity-Log download\033[31m failed\033[0m."
+else
+    echo "NX-Activity-Log download\033[32m success\033[0m."
+    mkdir -p ./switch/NX-Activity-Log
+    mv NX-Activity-Log.nro ./switch/NX-Activity-Log
+fi
+
 ### Fetch nx-ovlloader
 curl -sL https://api.github.com/repos/ppkantorski/nx-ovlloader/releases/latest \
   | jq '.name' \
@@ -124,74 +140,69 @@ else
     rm nx-ovlloader.zip
 fi
 
-
-### Fetch linkalho
-curl -sL https://raw.githubusercontent.com/alonginwind/SwitchPlugins/main/plugins/linkalho.zip -o linkalho.zip
+### Fetch Ultrahand-Overlay
+curl -sL https://api.github.com/repos/ppkantorski/Ultrahand-Overlay/releases/latest \
+  | jq '.name' \
+  | xargs -I {} echo {} >> ../description.txt
+curl -sL https://api.github.com/repos/ppkantorski/Ultrahand-Overlay/releases/latest \
+  | grep -oP '"browser_download_url": "\Khttps://[^"]*.ovl"' \
+  | sed 's/"//g' \
+  | xargs -I {} curl -sL {} -o ovlmenu.ovl
 if [ $? -ne 0 ]; then
-    echo "linkalho download\033[31m failed\033[0m."
+    echo "Ultrahand-Overlay download\033[31m failed\033[0m."
 else
-    echo "linkalho download\033[32m success\033[0m."
-    unzip -oq linkalho.zip
-    rm linkalho.zip
+    echo "Ultrahand-Overlay download\033[32m success\033[0m."
+    mv ovlmenu.ovl ./switch/.overlays
 fi
 
-### Fetch Tesla-Menu
-curl -sL https://raw.githubusercontent.com/alonginwind/SwitchPlugins/main/plugins/Tesla-Menu.zip -o Tesla-Menu.zip
+### Fetch lang.zip
+curl -sL https://api.github.com/repos/ppkantorski/Ultrahand-Overlay/releases/latest \
+  | grep -oP '"browser_download_url": "\Khttps://[^"]*.zip"' \
+  | sed 's/"//g' \
+  | xargs -I {} curl -sL {} -o lang.zip
 if [ $? -ne 0 ]; then
-    echo "Tesla-Menu download\033[31m failed\033[0m."
+    echo "lang.zip download\033[31m failed\033[0m."
 else
-    echo "Tesla-Menu download\033[32m success\033[0m."
-    unzip -oq Tesla-Menu.zip
-    rm Tesla-Menu.zip
+    echo "lang.zip download\033[32m success\033[0m."
 fi
 
-### Fetch ovl-sysmodules
-curl -sL https://raw.githubusercontent.com/alonginwind/SwitchPlugins/main/plugins/ovl-sysmodules.zip -o ovl-sysmodules.zip
+
+### Fetch ovlSysmodules
+curl -sL https://api.github.com/repos/ppkantorski/ovl-sysmodules/releases/latest \
+  | jq '.tag_name' \
+  | xargs -I {} echo ovlSysmodules {} >> ../description.txt
+curl -sL https://api.github.com/repos/ppkantorski/ovl-sysmodules/releases/latest \
+  | grep -oP '"browser_download_url": "\Khttps://[^"]*.ovl"' \
+  | sed 's/"//g' \
+  | xargs -I {} curl -sL {} -o ovlSysmodules.ovl
 if [ $? -ne 0 ]; then
-    echo "ovl-sysmodules download\033[31m failed\033[0m."
+    echo "ovlSysmodules download\033[31m failed\033[0m."
 else
-    echo "ovl-sysmodules download\033[32m success\033[0m."
-    unzip -oq ovl-sysmodules.zip
-    rm ovl-sysmodules.zip
+    echo "ovlSysmodules download\033[32m success\033[0m."
+    mv ovlSysmodules.ovl ./switch/.overlays
 fi
 
-### Fetch emuiibo
-curl -sL https://raw.githubusercontent.com/alonginwind/SwitchPlugins/main/plugins/emuiibo.zip -o emuiibo.zip
+### Fetch Status-Monitor-Overlay
+curl -sL https://api.github.com/repos/ppkantorski/Status-Monitor-Overlay/releases/latest \
+  | jq '.name' \
+  | xargs -I {} echo {} >> ../description.txt
+curl -sL https://api.github.com/repos/ppkantorski/Status-Monitor-Overlay/releases/latest \
+  | grep -oP '"browser_download_url": "\Khttps://[^"]*.ovl"' \
+  | sed 's/"//g' \
+  | xargs -I {} curl -sL {} -o Status-Monitor-Overlay.ovl
 if [ $? -ne 0 ]; then
-    echo "emuiibo download\033[31m failed\033[0m."
+    echo "Status-Monitor-Overlay download\033[31m failed\033[0m."
 else
-    echo "emuiibo download\033[32m success\033[0m."
-    unzip -oq emuiibo.zip
-    rm emuiibo.zip
+    echo "Status-Monitor-Overlay download\033[32m success\033[0m."
+    mv Status-Monitor-Overlay.ovl ./switch/.overlays
 fi
-
-### Fetch sys-clk
-curl -sL https://raw.githubusercontent.com/alonginwind/SwitchPlugins/main/plugins/sys-clk.zip -o sys-clk.zip
-if [ $? -ne 0 ]; then
-    echo "sys-clk download\033[31m failed\033[0m."
-else
-    echo "sys-clk download\033[32m success\033[0m."
-    unzip -oq sys-clk.zip
-    rm sys-clk.zip
-fi
-
-### Fetch StatusMonitor
-curl -sL https://raw.githubusercontent.com/alonginwind/SwitchPlugins/main/plugins/StatusMonitor.zip -o StatusMonitor.zip
-if [ $? -ne 0 ]; then
-    echo "StatusMonitor download\033[31m failed\033[0m."
-else
-    echo "StatusMonitor download\033[32m success\033[0m."
-    unzip -oq StatusMonitor.zip
-    rm StatusMonitor.zip
-fi
-
 
 ### Fetch SaltySD
 curl -sL https://api.github.com/repos/masagrator/SaltyNX/releases/latest \
   | jq '.name' \
   | xargs -I {} echo {} >> ../description.txt
 curl -sL https://api.github.com/repos/masagrator/SaltyNX/releases/latest \
-  | grep -oP '"browser_download_url": "\Khttps://[^"]*SaltyNX[^"]*.zip"' \
+  | grep -oP '"browser_download_url": "\Khttps://[^"]*.zip"' \
   | sed 's/"//g' \
   | xargs -I {} curl -sL {} -o SaltySD.zip
 if [ $? -ne 0 ]; then
@@ -200,6 +211,26 @@ else
     echo "SaltySD download\033[32m success\033[0m."
     unzip -oq SaltySD.zip
     rm SaltySD.zip
+fi
+
+### Fetch sys-clk
+curl -sL https://api.github.com/repos/retronx-team/sys-clk/releases/latest \
+  | jq '.tag_name' \
+  | xargs -I {} echo sys-clk {} >> ../description.txt
+curl -sL https://api.github.com/repos/retronx-team/sys-clk/releases/latest \
+  | grep -oP '"browser_download_url": "\Khttps://[^"]*.zip"' \
+  | sed 's/"//g' \
+  | xargs -I {} curl -sL {} -o sys-clk.zip
+if [ $? -ne 0 ]; then
+    echo "sys-clk download\033[31m failed\033[0m."
+else
+    echo "sys-clk download\033[32m success\033[0m."
+    unzip -oq sys-clk.zip
+    rm sys-clk.zip
+    rm README.md
+    rm -r ./config/sys-clk
+    mkdir -p ./switch/sys-clk-manager
+    mv ./switch/sys-clk-manager.nro ./switch/sys-clk-manager
 fi
 
 ### Fetch sys-patch
@@ -218,16 +249,6 @@ else
     rm sys-patch.zip
 fi
 
-
-# -------------------------------------------
-cat >> ../description.txt << ENDOFFILE
-linkalho
-Tesla-Menu
-ovl-sysmodules
-emuiibo
-sys-clk
-StatusMonitor
-ENDOFFILE
 
 ### Rename hekate_ctcaer_*.bin to payload.bin
 find . -name "*hekate_ctcaer*" -exec mv {} payload.bin \;
