@@ -22,7 +22,7 @@
     - [x] 初始菜单 `Ultrahand Overlay` [From Here](https://github.com/ppkantorski/Ultrahand-Overlay/releases/latest)
   - Ovl插件
     - [x] 系统模块 `ovl-sysmodules` [From Here](https://github.com/ppkantorski/ovl-sysmodules/releases/latest)
-    - [x] 系统监视 `StatusMonitor` [From Here](https://github.com/ppkantorski/Status-Monitor-Overlay/latest)
+    - [x] 系统监视 `StatusMonitor` [From Here](https://github.com/ppkantorski/Status-Monitor-Overlay/releases/latest)
     - [x] 系统超频  `sys-clk` [From Here](https://github.com/retronx-team/sys-clk/releases/latest)
     - [x] 系统补丁 `sys-patch` [From Here](https://github.com/impeeza/sys-patch/releases/latest)
 - 文件操作：
