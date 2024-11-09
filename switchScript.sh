@@ -108,6 +108,22 @@ else
     mv dbi.config ./switch/DBI
 fi
 
+### Fetch nx-ovlloader
+curl -sL https://api.github.com/repos/ppkantorski/nx-ovlloader/releases/latest \
+  | jq '.name' \
+  | xargs -I {} echo {} >> ../description.txt
+curl -sL https://api.github.com/repos/ppkantorski/nx-ovlloader/releases/latest \
+  | grep -oP '"browser_download_url": "\Khttps://[^"]*+.zip"' \
+  | sed 's/"//g' \
+  | xargs -I {} curl -sL {} -o nx-ovlloader.zip
+  if [ $? -ne 0 ]; then
+    echo "nx-ovlloader download\033[31m failed\033[0m."
+else
+    echo "nx-ovlloader download\033[32m success\033[0m."
+    unzip -oq nx-ovlloader.zip
+    rm nx-ovlloader.zip
+fi
+
 
 ### Fetch linkalho
 curl -sL https://raw.githubusercontent.com/alonginwind/SwitchPlugins/main/plugins/linkalho.zip -o linkalho.zip
@@ -117,16 +133,6 @@ else
     echo "linkalho download\033[32m success\033[0m."
     unzip -oq linkalho.zip
     rm linkalho.zip
-fi
-
-### Fetch nx-ovlloader
-curl -sL https://raw.githubusercontent.com/alonginwind/SwitchPlugins/main/plugins/nx-ovlloader.zip -o nx-ovlloader.zip
-if [ $? -ne 0 ]; then
-    echo "nx-ovlloader download\033[31m failed\033[0m."
-else
-    echo "nx-ovlloader download\033[32m success\033[0m."
-    unzip -oq nx-ovlloader.zip
-    rm nx-ovlloader.zip
 fi
 
 ### Fetch Tesla-Menu
@@ -216,7 +222,6 @@ fi
 # -------------------------------------------
 cat >> ../description.txt << ENDOFFILE
 linkalho
-nx-ovlloader
 Tesla-Menu
 ovl-sysmodules
 emuiibo
