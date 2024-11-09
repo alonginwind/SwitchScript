@@ -165,7 +165,7 @@ if [ $? -ne 0 ]; then
 else
     echo "lang.zip download\033[32m success\033[0m."
     mkdir -p ./config/ultrahand/lang
-    unzip -oq -d ./config/ultrahand/lang
+    unzip -oq -d ./config/ultrahand/lang lang.zip
     rm lang.zip
 fi
 
