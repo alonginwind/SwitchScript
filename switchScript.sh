@@ -164,9 +164,9 @@ if [ $? -ne 0 ]; then
     echo "lang.zip download\033[31m failed\033[0m."
 else
     echo "lang.zip download\033[32m success\033[0m."
-    unzip -oq lang.zip
-    mkdir -p ./config/ultrahand
-    mv lang ./config/ultrahand
+    mkdir -p ./config/ultrahand/lang
+    unzip -oq -d ./config/ultrahand/lang
+    rm lang.zip
 fi
 
 ### Fetch ovlSysmodules
