@@ -23,8 +23,8 @@
   - Ovl插件
     - [x] 系统模块 `ovl-sysmodules` [From Here](https://www.tekqart.com/thread-222735-1-1.html)
     - [x] 系统模块 `emuiibo` [From Here](https://www.tekqart.com/thread-222735-1-1.html)
-    - [x] 系统监视 `StatusMonitor` [From Here](https://www.tekqart.com/thread-222735-1-1.html)
     - [x] 系统超频  `sys-clk` [From Here](https://www.tekqart.com/thread-222735-1-1.html)
+    - [x] 系统监视 `StatusMonitor` [From Here](https://www.tekqart.com/thread-222735-1-1.html)
     - [x] 系统补丁 `sys-patch` [From Here](https://github.com/impeeza/sys-patch/releases/latest)
 - 文件操作：
   - [x] 移动 `fusee.bin` 至 `bootloader/payloads` 文件夹
