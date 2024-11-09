@@ -19,12 +19,11 @@
     - [x] 离线账号关联工具 `linkalho` [From Here](https://www.tekqart.com/forum.php?mod=viewthread&tid=370855&highlight=linkalho&_dsign=f569c76c)
   - Tesla
     - [x] 加载器 `nx-ovlloader` [From Here](https://github.com/ppkantorski/nx-ovlloader/releases/latest)
-    - [x] 初始菜单 `Tesla-Menu` [From Here](https://www.tekqart.com/thread-222735-1-1.html)
+    - [x] 初始菜单 `Ultrahand Overlay` [From Here](https://github.com/ppkantorski/Ultrahand-Overlay/releases/latest)
   - Ovl插件
-    - [x] 系统模块 `ovl-sysmodules` [From Here](https://www.tekqart.com/thread-222735-1-1.html)
-    - [x] 系统模块 `emuiibo` [From Here](https://www.tekqart.com/thread-222735-1-1.html)
-    - [x] 系统超频  `sys-clk` [From Here](https://www.tekqart.com/thread-222735-1-1.html)
-    - [x] 系统监视 `StatusMonitor` [From Here](https://www.tekqart.com/thread-222735-1-1.html)
+    - [x] 系统模块 `ovl-sysmodules` [From Here](https://github.com/ppkantorski/ovl-sysmodules/releases/latest)
+    - [x] 系统监视 `StatusMonitor` [From Here](https://github.com/ppkantorski/Status-Monitor-Overlay/latest)
+    - [x] 系统超频  `sys-clk` [From Here](https://github.com/retronx-team/sys-clk/releases/latest)
     - [x] 系统补丁 `sys-patch` [From Here](https://github.com/impeeza/sys-patch/releases/latest)
 - 文件操作：
   - [x] 移动 `fusee.bin` 至 `bootloader/payloads` 文件夹
