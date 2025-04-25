@@ -228,9 +228,9 @@ if [ $? -ne 0 ]; then
 else
     echo "sys-clk download\033[32m success\033[0m."
     unzip -oq sys-clk.zip
-    #rm sys-clk.zip
+    rm sys-clk.zip
     rm README.md
-    #rm ./config/sys-clk/config.ini.template
+    mv ./config/sys-clk/config.ini.template ./config/sys-clk/config.ini
     mkdir -p ./switch/sys-clk-manager
     mv ./switch/sys-clk-manager.nro ./switch/sys-clk-manager
 fi
