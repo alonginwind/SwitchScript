@@ -230,7 +230,7 @@ else
     unzip -oq sys-clk.zip
     rm sys-clk.zip
     rm README.md
-    rm -r ./config/sys-clk
+    rm ./config/sys-clk/config.ini.template
     mkdir -p ./switch/sys-clk-manager
     mv ./switch/sys-clk-manager.nro ./switch/sys-clk-manager
 fi
