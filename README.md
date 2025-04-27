@@ -23,6 +23,7 @@
   - Ovl插件
     - [x] 系统模块 `ovlSysmodules` [From Here](https://github.com/ppkantorski/ovl-sysmodules/releases/latest)
     - [x] 系统监视 `Status-Monitor-Overlay` [From Here](https://github.com/ppkantorski/Status-Monitor-Overlay/releases/latest)
+    - [x] 系统监视 `SaltySD` [From Here](https://github.com/masagrator/SaltyNX/releases/latest)
     - [x] 系统超频  `sys-clk` [From Here](https://github.com/retronx-team/sys-clk/releases/latest)
     - [x] 系统补丁 `sys-patch` [From Here](https://github.com/impeeza/sys-patch/releases/latest)
 - 文件操作：
@@ -37,5 +38,5 @@
   - [x] 删除 `switch` 文件夹中 `haze.nro`
   - [x] 删除 `switch` 文件夹中 `reboot_to_hekate.nro`
   - [x] 删除 `switch` 文件夹中 `reboot_to_payload.nro`
-  - [x] 删除 `config` 文件夹中 `sys-clk` 的文件夹
+  - [x] 重命名 `config/sys-clk` 文件夹中的 `config.ini.template` 文件
   - [x] 删除 `config` 文件夹中 `Tesla-Menu` 的文件夹
