@@ -65,11 +65,11 @@ else
     rm hekate.zip
 fi
 
-### Fetch latest Lockpick_RCM.bin from https://github.com/Kofysh/Lockpick_RCM/releases/latest
-curl -sL https://api.github.com/repos/Kofysh/Lockpick_RCM/releases/latest \
+### Fetch latest Lockpick_RCM.bin from https://github.com/zdm65477730/Lockpick_RCMDecScots/releases/latest
+curl -sL https://api.github.com/repos/zdm65477730/Lockpick_RCMDecScots/releases/latest \
   | jq '.tag_name' \
   | xargs -I {} echo Lockpick_RCM {} >> ../description.txt
-curl -sL https://api.github.com/repos/Kofysh/Lockpick_RCM/releases/latest \
+curl -sL https://api.github.com/repos/zdm65477730/Lockpick_RCMDecScots/releases/latest \
   | grep -oP '"browser_download_url": "\Khttps://[^"]*Lockpick_RCM.bin"' \
   | sed 's/"//g' \
   | xargs -I {} curl -sL {} -o Lockpick_RCM.bin
