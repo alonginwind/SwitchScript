@@ -141,32 +141,19 @@ else
 fi
 
 ### Fetch Ultrahand-Overlay
-curl -sL https://api.github.com/repos/ppkantorski/Ultrahand-Overlay/releases/latest \
+curl -sL https://api.github.com/repos/zdm65477730/Ultrahand-Overlay/releases/latest \
   | jq '.name' \
   | xargs -I {} echo {} >> ../description.txt
-curl -sL https://api.github.com/repos/ppkantorski/Ultrahand-Overlay/releases/latest \
-  | grep -oP '"browser_download_url": "\Khttps://[^"]*.ovl"' \
+curl -sL https://api.github.com/repos/zdm65477730/Ultrahand-Overlay/releases/latest \
+  | grep -oP '"browser_download_url": "\Khttps://[^"]*.zip"' \
   | sed 's/"//g' \
-  | xargs -I {} curl -sL {} -o ovlmenu.ovl
+  | xargs -I {} curl -sL {} -o Ultrahand.zip
 if [ $? -ne 0 ]; then
     echo "Ultrahand-Overlay download\033[31m failed\033[0m."
 else
     echo "Ultrahand-Overlay download\033[32m success\033[0m."
-    mv ovlmenu.ovl ./switch/.overlays
-fi
-
-### Fetch lang.zip
-curl -sL https://api.github.com/repos/ppkantorski/Ultrahand-Overlay/releases/latest \
-  | grep -oP '"browser_download_url": "\Khttps://[^"]*.zip"' \
-  | sed 's/"//g' \
-  | xargs -I {} curl -sL {} -o lang.zip
-if [ $? -ne 0 ]; then
-    echo "lang.zip download\033[31m failed\033[0m."
-else
-    echo "lang.zip download\033[32m success\033[0m."
-    mkdir -p ./config/ultrahand/lang
-    unzip -oq -d ./config/ultrahand/lang lang.zip
-    rm lang.zip
+    unzip -oq Ultrahand.zip
+    rm Ultrahand.zip
 fi
 
 ### Fetch ovlSysmodules
