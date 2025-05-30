@@ -80,11 +80,11 @@ else
     mv Lockpick_RCM.bin ./bootloader/payloads
 fi
 
-### Fetch lastest DBI from https://github.com/rashevskyv/dbi/releases/latest
-curl -sL https://api.github.com/repos/rashevskyv/dbi/releases/latest \
+### Fetch lastest DBI from https://github.com/rashevskyv/dbi/releases/tag/658
+curl -sL https://api.github.com/repos/rashevskyv/dbi/releases/tag/658 \
   | jq '.name' \
   | xargs -I {} echo {} >> ../description.txt
-curl -sL https://api.github.com/repos/rashevskyv/dbi/releases/latest \
+curl -sL https://api.github.com/repos/rashevskyv/dbi/releases/tag/658 \
   | grep -oP '"browser_download_url": "\Khttps://[^"]*DBI.nro"' \
   | sed 's/"//g' \
   | xargs -I {} curl -sL {} -o DBI.nro
@@ -97,7 +97,7 @@ else
 fi
 
 ### Fetch dbi config
-curl -sL https://api.github.com/repos/rashevskyv/dbi/releases/latest \
+curl -sL https://api.github.com/repos/rashevskyv/dbi/releases/tag/658 \
   | grep -oP '"browser_download_url": "\Khttps://[^"]*dbi.config"' \
   | sed 's/"//g' \
   | xargs -I {} curl -sL {} -o dbi.config
