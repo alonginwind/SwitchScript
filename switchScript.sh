@@ -260,13 +260,12 @@ autonogc=1
 updater2p=1
 bootprotect=0
 [虚拟系统]
-fss0=atmosphere/package3
+pkg3=atmosphere/package3
 emummcforce=1
-atmosphere=1
 icon=bootloader/res/icon_emummc.bmp
 id=emummc
 [正版系统]
-fss0=atmosphere/package3
+pkg3=atmosphere/package3
 emummc_force_disable=1
 stock=1
 icon=bootloader/res/icon_normal.bmp
