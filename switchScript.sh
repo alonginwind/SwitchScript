@@ -390,6 +390,7 @@ fi
 ### Delete unneeded files
 rm -f switch/haze.nro
 rm -f switch/reboot_to_payload.nro
+rm -rf ./config/tesla
 
 
 ### End
