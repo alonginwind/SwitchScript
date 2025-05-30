@@ -15,10 +15,10 @@
   - Payload插件
     - [x] 主机系统的密钥提取工具 `Lockpick_RCM` [From Here](https://github.com/zdm65477730/Lockpick_RCMDecScots/releases/latest)
   - Nro插件
-    - [x] 游戏安装，存档管理和文件传输工具 `DBI` [From Here](https://github.com/rashevskyv/dbi/releases/latest)
+    - [x] 游戏安装，存档管理和文件传输工具 `DBI` [From Here](https://github.com/rashevskyv/dbi/releases/tag/658)
     - [x] 游玩时间记录工具 `NX-Activity-Log` [From Here](https://github.com/zdm65477730/NX-Activity-Log/releases/latest)
   - Tesla
-    - [x] 加载器 `nx-ovlloader` [From Here](https://github.com/ppkantorski/nx-ovlloader/releases/latest)
+    - [x] 加载器 `nx-ovlloader` [From Here](https://github.com/zdm65477730/nx-ovlloader/releases/latest)
     - [x] 初始菜单 `Ultrahand-Overlay` [From Here](https://github.com/zdm65477730/Ultrahand-Overlay/releases/latest)
   - Ovl插件
     - [x] 系统模块 `ovlSysmodules` [From Here](https://github.com/zdm65477730/ovl-sysmodules/releases/latest)
