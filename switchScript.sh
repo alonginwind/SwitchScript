@@ -159,7 +159,7 @@ fi
 ### Fetch ovlSysmodules
 curl -sL https://api.github.com/repos/zdm65477730/ovl-sysmodules/releases/latest \
   | jq '.name' \
-  | xargs -I {} echo ovlSysmodules {} >> ../description.txt
+  | xargs -I {} echo {} >> ../description.txt
 curl -sL https://api.github.com/repos/zdm65477730/ovl-sysmodules/releases/latest \
   | grep -oP '"browser_download_url": "\Khttps://[^"]*.zip"' \
   | sed 's/"//g' \
@@ -207,7 +207,7 @@ fi
 ### Fetch sys-clk
 curl -sL https://api.github.com/repos/zdm65477730/sys-clk/releases/latest \
   | jq '.name' \
-  | xargs -I {} echo sys-clk {} >> ../description.txt
+  | xargs -I {} echo {} >> ../description.txt
 curl -sL https://api.github.com/repos/zdm65477730/sys-clk/releases/latest \
   | grep -oP '"browser_download_url": "\Khttps://[^"]*.zip"' \
   | sed 's/"//g' \
