@@ -81,10 +81,10 @@ else
 fi
 
 ### Fetch lastest DBI from https://github.com/rashevskyv/dbi/releases/tag/658
-curl -sL https://api.github.com/repos/rashevskyv/dbi/releases/tag/658 \
+curl -sL https://api.github.com/repos/rashevskyv/dbi/releases/135856657 \
   | jq '.name' \
   | xargs -I {} echo {} >> ../description.txt
-curl -sL https://api.github.com/repos/rashevskyv/dbi/releases/tag/658 \
+curl -sL https://api.github.com/repos/rashevskyv/dbi/releases/135856657 \
   | grep -oP '"browser_download_url": "\Khttps://[^"]*DBI.nro"' \
   | sed 's/"//g' \
   | xargs -I {} curl -sL {} -o DBI.nro
@@ -97,7 +97,7 @@ else
 fi
 
 ### Fetch dbi config
-curl -sL https://api.github.com/repos/rashevskyv/dbi/releases/tag/658 \
+curl -sL https://api.github.com/repos/rashevskyv/dbi/releases/135856657 \
   | grep -oP '"browser_download_url": "\Khttps://[^"]*dbi.config"' \
   | sed 's/"//g' \
   | xargs -I {} curl -sL {} -o dbi.config
