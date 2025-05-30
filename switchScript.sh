@@ -165,11 +165,27 @@ curl -sL https://api.github.com/repos/zdm65477730/ovl-sysmodules/releases/latest
   | sed 's/"//g' \
   | xargs -I {} curl -sL {} -o ovl-sysmodules.zip
 if [ $? -ne 0 ]; then
-    echo "ovlSysmodules download\033[31m failed\033[0m."
+    echo "ovl-sysmodules download\033[31m failed\033[0m."
 else
-    echo "ovlSysmodules download\033[32m success\033[0m."
+    echo "ovl-sysmodules download\033[32m success\033[0m."
     unzip -oq ovl-sysmodules.zip
     rm ovl-sysmodules.zip
+fi
+
+### Fetch QuickNTP
+curl -sL https://api.github.com/repos/zdm65477730/QuickNTP/releases/latest \
+  | jq '.name' \
+  | xargs -I {} echo {} >> ../description.txt
+curl -sL https://api.github.com/repos/zdm65477730/QuickNTP/releases/latest \
+  | grep -oP '"browser_download_url": "\Khttps://[^"]*.zip"' \
+  | sed 's/"//g' \
+  | xargs -I {} curl -sL {} -o QuickNTP.zip
+if [ $? -ne 0 ]; then
+    echo "QuickNTP download\033[31m failed\033[0m."
+else
+    echo "QuickNTP download\033[32m success\033[0m."
+    unzip -oq QuickNTP.zip
+    rm QuickNTP.zip
 fi
 
 ### Fetch Status-Monitor-Overlay
