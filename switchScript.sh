@@ -157,33 +157,35 @@ else
 fi
 
 ### Fetch ovlSysmodules
-curl -sL https://api.github.com/repos/ppkantorski/ovl-sysmodules/releases/latest \
-  | jq '.tag_name' \
+curl -sL https://api.github.com/repos/zdm65477730/ovl-sysmodules/releases/latest \
+  | jq '.name' \
   | xargs -I {} echo ovlSysmodules {} >> ../description.txt
-curl -sL https://api.github.com/repos/ppkantorski/ovl-sysmodules/releases/latest \
-  | grep -oP '"browser_download_url": "\Khttps://[^"]*.ovl"' \
+curl -sL https://api.github.com/repos/zdm65477730/ovl-sysmodules/releases/latest \
+  | grep -oP '"browser_download_url": "\Khttps://[^"]*.zip"' \
   | sed 's/"//g' \
-  | xargs -I {} curl -sL {} -o ovlSysmodules.ovl
+  | xargs -I {} curl -sL {} -o ovl-sysmodules.zip
 if [ $? -ne 0 ]; then
     echo "ovlSysmodules download\033[31m failed\033[0m."
 else
     echo "ovlSysmodules download\033[32m success\033[0m."
-    mv ovlSysmodules.ovl ./switch/.overlays
+    unzip -oq ovl-sysmodules.zip
+    rm ovl-sysmodules.zip
 fi
 
 ### Fetch Status-Monitor-Overlay
-curl -sL https://api.github.com/repos/ppkantorski/Status-Monitor-Overlay/releases/latest \
+curl -sL https://api.github.com/repos/zdm65477730/Status-Monitor-Overlay/releases/latest \
   | jq '.name' \
   | xargs -I {} echo {} >> ../description.txt
-curl -sL https://api.github.com/repos/ppkantorski/Status-Monitor-Overlay/releases/latest \
-  | grep -oP '"browser_download_url": "\Khttps://[^"]*.ovl"' \
+curl -sL https://api.github.com/repos/zdm65477730/Status-Monitor-Overlay/releases/latest \
+  | grep -oP '"browser_download_url": "\Khttps://[^"]*.zip"' \
   | sed 's/"//g' \
-  | xargs -I {} curl -sL {} -o Status-Monitor-Overlay.ovl
+  | xargs -I {} curl -sL {} -o StatusMonitor.zip
 if [ $? -ne 0 ]; then
     echo "Status-Monitor-Overlay download\033[31m failed\033[0m."
 else
     echo "Status-Monitor-Overlay download\033[32m success\033[0m."
-    mv Status-Monitor-Overlay.ovl ./switch/.overlays
+    unzip -oq StatusMonitor.zip
+    rm StatusMonitor.zip
 fi
 
 ### Fetch SaltySD
@@ -203,10 +205,10 @@ else
 fi
 
 ### Fetch sys-clk
-curl -sL https://api.github.com/repos/retronx-team/sys-clk/releases/latest \
-  | jq '.tag_name' \
+curl -sL https://api.github.com/repos/zdm65477730/sys-clk/releases/latest \
+  | jq '.name' \
   | xargs -I {} echo sys-clk {} >> ../description.txt
-curl -sL https://api.github.com/repos/retronx-team/sys-clk/releases/latest \
+curl -sL https://api.github.com/repos/zdm65477730/sys-clk/releases/latest \
   | grep -oP '"browser_download_url": "\Khttps://[^"]*.zip"' \
   | sed 's/"//g' \
   | xargs -I {} curl -sL {} -o sys-clk.zip
@@ -216,10 +218,6 @@ else
     echo "sys-clk download\033[32m success\033[0m."
     unzip -oq sys-clk.zip
     rm sys-clk.zip
-    rm README.md
-    mv ./config/sys-clk/config.ini.template ./config/sys-clk/config.ini
-    mkdir -p ./switch/sys-clk-manager
-    mv ./switch/sys-clk-manager.nro ./switch/sys-clk-manager
 fi
 
 ### Fetch sys-patch
