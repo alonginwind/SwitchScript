@@ -125,10 +125,10 @@ else
 fi
 
 ### Fetch nx-ovlloader
-curl -sL https://api.github.com/repos/ppkantorski/nx-ovlloader/releases/latest \
+curl -sL https://api.github.com/repos/zdm65477730/nx-ovlloader/releases/latest \
   | jq '.name' \
   | xargs -I {} echo {} >> ../description.txt
-curl -sL https://api.github.com/repos/ppkantorski/nx-ovlloader/releases/latest \
+curl -sL https://api.github.com/repos/zdm65477730/nx-ovlloader/releases/latest \
   | grep -oP '"browser_download_url": "\Khttps://[^"]*B.zip"' \
   | sed 's/"//g' \
   | xargs -I {} curl -sL {} -o nx-ovlloader.zip
@@ -156,7 +156,7 @@ else
     rm Ultrahand.zip
 fi
 
-### Fetch ovlSysmodules
+### Fetch ovl-sysmodules
 curl -sL https://api.github.com/repos/zdm65477730/ovl-sysmodules/releases/latest \
   | jq '.name' \
   | xargs -I {} echo {} >> ../description.txt
