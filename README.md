@@ -21,7 +21,7 @@
     - [x] 加载器 `nx-ovlloader` [From Here](https://github.com/zdm65477730/nx-ovlloader/releases/latest)
     - [x] 初始菜单 `Ultrahand-Overlay` [From Here](https://github.com/zdm65477730/Ultrahand-Overlay/releases/latest)
   - Ovl插件
-    - [x] 系统模块 `ovlSysmodules` [From Here](https://github.com/zdm65477730/ovl-sysmodules/releases/latest)
+    - [x] 系统模块 `ovl-sysmodules` [From Here](https://github.com/zdm65477730/ovl-sysmodules/releases/latest)
     - [x] 系统监视 `Status-Monitor-Overlay` [From Here](https://github.com/zdm65477730/Status-Monitor-Overlay/releases/latest)
     - [x] 系统监视 `SaltySD` [From Here](https://github.com/masagrator/SaltyNX/releases/latest)
     - [x] 系统超频  `sys-clk` [From Here](https://github.com/zdm65477730/sys-clk/releases/latest)
@@ -37,4 +37,4 @@
   - [x] 在 `atmosphere/config` 文件夹中创建 `system_settings.ini`
   - [x] 删除 `switch` 文件夹中 `haze.nro`
   - [x] 删除 `switch` 文件夹中 `reboot_to_payload.nro`
-  - [x] 删除 `config` 文件夹中 `Tesla-Menu` 的文件夹
+  - [x] 删除 `config` 文件夹中 `tesla` 的文件夹
