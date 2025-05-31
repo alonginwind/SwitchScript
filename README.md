@@ -11,6 +11,8 @@
 - 下载最新
   - 大气层三件套
     - [x] `Atmosphere + Fusee` [From Here](https://github.com/zdm65477730/Atmosphere/releases/latest)
+    - [x] `nx-hbloader` [From Here](https://github.com/switchbrew/nx-hbloader/releases/latest)
+    - [x] `nx-hbmenu` [From Here](https://github.com/switchbrew/nx-hbmenu/releases/latest)
     - [x] `EasyWrold汉化整合版` [From Here](https://github.com/easyworld/hekate/releases/latest)
   - Payload插件
     - [x] 主机系统的密钥提取工具 `Lockpick_RCM` [From Here](https://github.com/zdm65477730/Lockpick_RCMDecScots/releases/latest)
