@@ -20,11 +20,11 @@ mkdir -p ./SwitchSD/switch/.overlays
 cd SwitchSD
 
 
-### Fetch latest atmosphere from https://github.com/Atmosphere-NX/Atmosphere/releases/latest
-curl -sL https://api.github.com/repos/Atmosphere-NX/Atmosphere/releases/latest \
+### Fetch latest atmosphere from https://github.com/zdm65477730/Atmosphere/releases/latest
+curl -sL https://api.github.com/repos/zdm65477730/Atmosphere/releases/latest \
   | jq '.name' \
   | xargs -I {} echo {} >> ../description.txt
-curl -sL https://api.github.com/repos/Atmosphere-NX/Atmosphere/releases/latest \
+curl -sL https://api.github.com/repos/zdm65477730/Atmosphere/releases/latest \
   | grep -oP '"browser_download_url": "\Khttps://[^"]*atmosphere[^"]*.zip' \
   | sed 's/"//g' \
   | xargs -I {} curl -sL {} -o atmosphere.zip
@@ -36,8 +36,8 @@ else
     rm atmosphere.zip
 fi
 
-### Fetch latest fusee.bin from https://github.com/Atmosphere-NX/Atmosphere/releases/latest
-curl -sL https://api.github.com/repos/Atmosphere-NX/Atmosphere/releases/latest \
+### Fetch latest fusee.bin from https://github.com/zdm65477730/Atmosphere/releases/latest
+curl -sL https://api.github.com/repos/zdm65477730/Atmosphere/releases/latest \
   | grep -oP '"browser_download_url": "\Khttps://[^"]*fusee.bin"' \
   | sed 's/"//g' \
   | xargs -I {} curl -sL {} -o fusee.bin
@@ -234,22 +234,6 @@ else
     echo "sys-clk download\033[32m success\033[0m."
     unzip -oq sys-clk.zip
     rm sys-clk.zip
-fi
-
-### Fetch sys-patch
-curl -sL https://api.github.com/repos/impeeza/sys-patch/releases/latest \
-  | jq '.tag_name' \
-  | xargs -I {} echo sys-patch {} >> ../description.txt
-curl -sL https://api.github.com/repos/impeeza/sys-patch/releases/latest \
-  | grep -oP '"browser_download_url": "\Khttps://[^"]*sys-patch[^"]*.zip"' \
-  | sed 's/"//g' \
-  | xargs -I {} curl -sL {} -o sys-patch.zip
-if [ $? -ne 0 ]; then
-    echo "sys-patch download\033[31m failed\033[0m."
-else
-    echo "sys-patch download\033[32m success\033[0m."
-    unzip -oq sys-patch.zip
-    rm sys-patch.zip
 fi
 
 
