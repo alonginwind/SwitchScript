@@ -77,6 +77,7 @@ if [ $? -ne 0 ]; then
 else
     echo "hbmenu download\033[32m success\033[0m."
     unzip -oq hbmenu.zip
+    rm hbmenu.zip
 fi
 
 #### 不再使用原本hekate+汉化文件的方式，直接使用EasyWorld大佬的汉化版本
