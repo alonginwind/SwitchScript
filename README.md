@@ -10,7 +10,7 @@
 
 - 下载最新
   - 大气层三件套
-    - [x] `Atmosphere + Fusee` [From Here](https://github.com/Atmosphere-NX/Atmosphere/releases/latest)
+    - [x] `Atmosphere + Fusee` [From Here](https://github.com/zdm65477730/Atmosphere/releases/latest)
     - [x] `EasyWrold汉化整合版` [From Here](https://github.com/easyworld/hekate/releases/latest)
   - Payload插件
     - [x] 主机系统的密钥提取工具 `Lockpick_RCM` [From Here](https://github.com/zdm65477730/Lockpick_RCMDecScots/releases/latest)
@@ -26,7 +26,6 @@
     - [x] 系统监视 `Status-Monitor-Overlay` [From Here](https://github.com/zdm65477730/Status-Monitor-Overlay/releases/latest)
     - [x] 系统监视 `SaltySD` [From Here](https://github.com/masagrator/SaltyNX/releases/latest)
     - [x] 系统超频  `sys-clk` [From Here](https://github.com/zdm65477730/sys-clk/releases/latest)
-    - [x] 系统补丁 `sys-patch` [From Here](https://github.com/impeeza/sys-patch/releases/latest)
 - 文件操作：
   - [x] 移动 `fusee.bin` 至 `bootloader/payloads` 文件夹
   - [x] 将 `hekate_ctcaer_*.bin` 重命名为 `payload.bin`
