@@ -49,6 +49,36 @@ else
     mv fusee.bin ./bootloader/payloads
 fi
 
+### Fetch hbl.nsp from https://github.com/switchbrew/nx-hbloader/releases/latest
+curl -sL https://api.github.com/repos/switchbrew/nx-hbloader/releases/latest \
+  | jq '.name' \
+  | xargs -I {} echo {} >> ../description.txt
+curl -sL https://api.github.com/repos/switchbrew/nx-hbloader/releases/latest \
+  | grep -oP '"browser_download_url": "\Khttps://[^"]*.nsp"' \
+  | sed 's/"//g' \
+  | xargs -I {} curl -sL {} -o hbl.nsp
+if [ $? -ne 0 ]; then
+    echo "hbl download\033[31m failed\033[0m."
+else
+    echo "hbl download\033[32m success\033[0m."
+    mv hbl.nsp ./atmosphere
+fi
+
+### Fetch hbmenu from https://github.com/switchbrew/nx-hbmenu/releases/latest
+curl -sL https://api.github.com/repos/switchbrew/nx-hbmenu/releases/latest \
+  | jq '.name' \
+  | xargs -I {} echo {} >> ../description.txt
+curl -sL https://api.github.com/repos/switchbrew/nx-hbmenu/releases/latest \
+  | grep -oP '"browser_download_url": "\Khttps://[^"]*.zip"' \
+  | sed 's/"//g' \
+  | xargs -I {} curl -sL {} -o hbmenu.zip
+if [ $? -ne 0 ]; then
+    echo "hbmenu download\033[31m failed\033[0m."
+else
+    echo "hbmenu download\033[32m success\033[0m."
+    unzip -oq hbmenu.zip
+fi
+
 #### 不再使用原本hekate+汉化文件的方式，直接使用EasyWorld大佬的汉化版本
 curl -sL https://api.github.com/repos/easyworld/hekate/releases/latest \
   | jq '.name' \
