@@ -66,8 +66,8 @@ fi
 
 ### Fetch hbmenu from https://github.com/switchbrew/nx-hbmenu/releases/latest
 curl -sL https://api.github.com/repos/switchbrew/nx-hbmenu/releases/latest \
-  | jq '.name' \
-  | xargs -I {} echo {} >> ../description.txt
+  | jq '.tag_name' \
+  | xargs -I {} echo nx-hbmenu {} >> ../description.txt
 curl -sL https://api.github.com/repos/switchbrew/nx-hbmenu/releases/latest \
   | grep -oP '"browser_download_url": "\Khttps://[^"]*.zip"' \
   | sed 's/"//g' \
@@ -97,8 +97,8 @@ fi
 
 ### Fetch latest Lockpick_RCM.bin from https://github.com/zdm65477730/Lockpick_RCMDecScots/releases/latest
 curl -sL https://api.github.com/repos/zdm65477730/Lockpick_RCMDecScots/releases/latest \
-  | jq '.tag_name' \
-  | xargs -I {} echo Lockpick_RCM {} >> ../description.txt
+  | jq '.name' \
+  | xargs -I {} echo {} >> ../description.txt
 curl -sL https://api.github.com/repos/zdm65477730/Lockpick_RCMDecScots/releases/latest \
   | grep -oP '"browser_download_url": "\Khttps://[^"]*Lockpick_RCM.bin"' \
   | sed 's/"//g' \
@@ -140,8 +140,8 @@ fi
 
 ### Fetch lastest NX-Activity-Log from https://github.com/zdm65477730/NX-Activity-Log/releases/latest
 curl -sL https://api.github.com/repos/zdm65477730/NX-Activity-Log/releases/latest \
-  | jq '.tag_name' \
-  | xargs -I {} echo NX-Activity-Log {} >> ../description.txt
+  | jq '.name' \
+  | xargs -I {} echo {} >> ../description.txt
 curl -sL https://api.github.com/repos/zdm65477730/NX-Activity-Log/releases/latest \
   | grep -oP '"browser_download_url": "\Khttps://[^"]*.nro"' \
   | sed 's/"//g' \
