@@ -289,10 +289,8 @@ autonogc=1
 updater2p=1
 bootprotect=0
 [虚拟系统]
-pkg3=atmosphere/package3
-emummcforce=1
+payload=bootloader/payloads/fusee.bin
 icon=bootloader/res/icon_emummc.bmp
-id=emummc
 [正版系统]
 pkg3=atmosphere/package3
 emummc_force_disable=1
