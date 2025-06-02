@@ -279,7 +279,7 @@ fi
 ### Write hekate_ipl.ini in /bootloader/
 cat > ./bootloader/hekate_ipl.ini << ENDOFFILE
 [config]
-autoboot=0
+autoboot=1
 autoboot_list=0
 bootwait=2
 backlight=100
