@@ -14,8 +14,6 @@
     - [x] `nx-hbloader` [From Here](https://github.com/switchbrew/nx-hbloader/releases/latest)
     - [x] `nx-hbmenu` [From Here](https://github.com/switchbrew/nx-hbmenu/releases/latest)
     - [x] `EasyWrold汉化整合版` [From Here](https://github.com/easyworld/hekate/releases/latest)
-  - Payload插件
-    - [x] 主机系统的密钥提取工具 `Lockpick_RCM` [From Here](https://github.com/zdm65477730/Lockpick_RCMDecScots/releases/latest)
   - Nro插件
     - [x] 游戏安装，存档管理和文件传输工具 `DBI` [From Here](https://github.com/rashevskyv/dbi/releases/tag/658)
     - [x] 游玩时间记录工具 `NX-Activity-Log` [From Here](https://github.com/zdm65477730/NX-Activity-Log/releases/latest)
@@ -23,8 +21,6 @@
     - [x] 加载器 `nx-ovlloader` [From Here](https://github.com/zdm65477730/nx-ovlloader/releases/latest)
     - [x] 初始菜单 `Ultrahand-Overlay` [From Here](https://github.com/zdm65477730/Ultrahand-Overlay/releases/latest)
   - Ovl插件
-    - [x] 系统模块 `ovl-sysmodules` [From Here](https://github.com/zdm65477730/ovl-sysmodules/releases/latest)
-    - [x] 时间同步 `QuickNTP` [From Here](https://github.com/zdm65477730/QuickNTP/releases/latest)
     - [x] 系统监视 `Status-Monitor-Overlay` [From Here](https://github.com/zdm65477730/Status-Monitor-Overlay/releases/latest)
     - [x] 系统监视 `SaltySD` [From Here](https://github.com/masagrator/SaltyNX/releases/latest)
     - [x] 系统超频  `sys-clk` [From Here](https://github.com/zdm65477730/sys-clk/releases/latest)
