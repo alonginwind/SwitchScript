@@ -96,21 +96,6 @@ else
     rm hekate.zip
 fi
 
-### Fetch latest Lockpick_RCM.bin from https://github.com/zdm65477730/Lockpick_RCMDecScots/releases/latest
-curl -sL https://api.github.com/repos/zdm65477730/Lockpick_RCMDecScots/releases/latest \
-  | jq '.name' \
-  | xargs -I {} echo {} >> ../description.txt
-curl -sL https://api.github.com/repos/zdm65477730/Lockpick_RCMDecScots/releases/latest \
-  | grep -oP '"browser_download_url": "\Khttps://[^"]*Lockpick_RCM.bin"' \
-  | sed 's/"//g' \
-  | xargs -I {} curl -sL {} -o Lockpick_RCM.bin
-if [ $? -ne 0 ]; then
-    echo "Lockpick_RCM download\033[31m failed\033[0m."
-else
-    echo "Lockpick_RCM download\033[32m success\033[0m."
-    mv Lockpick_RCM.bin ./bootloader/payloads
-fi
-
 ### Fetch lastest DBI from https://github.com/rashevskyv/dbi/releases/tag/658
 curl -sL https://api.github.com/repos/rashevskyv/dbi/releases/135856657 \
   | jq '.name' \
@@ -185,38 +170,6 @@ else
     echo "Ultrahand-Overlay download\033[32m success\033[0m."
     unzip -oq Ultrahand.zip
     rm Ultrahand.zip
-fi
-
-### Fetch ovl-sysmodules
-curl -sL https://api.github.com/repos/zdm65477730/ovl-sysmodules/releases/latest \
-  | jq '.name' \
-  | xargs -I {} echo {} >> ../description.txt
-curl -sL https://api.github.com/repos/zdm65477730/ovl-sysmodules/releases/latest \
-  | grep -oP '"browser_download_url": "\Khttps://[^"]*.zip"' \
-  | sed 's/"//g' \
-  | xargs -I {} curl -sL {} -o ovl-sysmodules.zip
-if [ $? -ne 0 ]; then
-    echo "ovl-sysmodules download\033[31m failed\033[0m."
-else
-    echo "ovl-sysmodules download\033[32m success\033[0m."
-    unzip -oq ovl-sysmodules.zip
-    rm ovl-sysmodules.zip
-fi
-
-### Fetch QuickNTP
-curl -sL https://api.github.com/repos/zdm65477730/QuickNTP/releases/latest \
-  | jq '.name' \
-  | xargs -I {} echo {} >> ../description.txt
-curl -sL https://api.github.com/repos/zdm65477730/QuickNTP/releases/latest \
-  | grep -oP '"browser_download_url": "\Khttps://[^"]*.zip"' \
-  | sed 's/"//g' \
-  | xargs -I {} curl -sL {} -o QuickNTP.zip
-if [ $? -ne 0 ]; then
-    echo "QuickNTP download\033[31m failed\033[0m."
-else
-    echo "QuickNTP download\033[32m success\033[0m."
-    unzip -oq QuickNTP.zip
-    rm QuickNTP.zip
 fi
 
 ### Fetch Status-Monitor-Overlay
