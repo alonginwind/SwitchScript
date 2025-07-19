@@ -257,8 +257,8 @@ else
     echo "Writing hekate_ipl.ini in ./bootloader/ directory\033[32m success\033[0m."
 fi
 
-### write exosphere.ini in root of SD Card
-cat > ./exosphere.ini << ENDOFFILE
+### write exosphere.ini in /atmosphere/config
+cat > ./atmosphere/config/exosphere.ini << ENDOFFILE
 [exosphere]
 debugmode=1
 debugmode_user=0
