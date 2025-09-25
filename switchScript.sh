@@ -96,12 +96,12 @@ else
     rm hekate.zip
 fi
 
-### Fetch lastest DBI from https://github.com/rashevskyv/dbi/releases/tag/658
-curl -sL https://api.github.com/repos/rashevskyv/dbi/releases/135856657 \
+### Fetch lastest DBI from https://github.com/rashevskyv/dbi/releases/latest
+curl -sL https://api.github.com/repos/rashevskyv/dbi/releases/latest \
   | jq '.name' \
   | xargs -I {} echo {} >> ../description.txt
-curl -sL https://api.github.com/repos/rashevskyv/dbi/releases/135856657 \
-  | grep -oP '"browser_download_url": "\Khttps://[^"]*DBI.nro"' \
+curl -sL https://api.github.com/repos/rashevskyv/dbi/releases/latest \
+  | grep -oP '"browser_download_url": "\Khttps://[^"]*.zhcn.nro"' \
   | sed 's/"//g' \
   | xargs -I {} curl -sL {} -o DBI.nro
 if [ $? -ne 0 ]; then
@@ -113,7 +113,7 @@ else
 fi
 
 ### Fetch dbi config
-curl -sL https://api.github.com/repos/rashevskyv/dbi/releases/135856657 \
+curl -sL https://api.github.com/repos/rashevskyv/dbi/releases/latest \
   | grep -oP '"browser_download_url": "\Khttps://[^"]*dbi.config"' \
   | sed 's/"//g' \
   | xargs -I {} curl -sL {} -o dbi.config
@@ -173,10 +173,10 @@ else
 fi
 
 ### Fetch Status-Monitor-Overlay
-curl -sL https://api.github.com/repos/zdm65477730/Status-Monitor-Overlay/releases/tag/v1.2.2 \
+curl -sL https://api.github.com/repos/zdm65477730/Status-Monitor-Overlay/releases/latest \
   | jq '.name' \
   | xargs -I {} echo {} >> ../description.txt
-curl -sL https://api.github.com/repos/zdm65477730/Status-Monitor-Overlay/releases/tag/v1.2.2 \
+curl -sL https://api.github.com/repos/zdm65477730/Status-Monitor-Overlay/releases/latest \
   | grep -oP '"browser_download_url": "\Khttps://[^"]*.zip"' \
   | sed 's/"//g' \
   | xargs -I {} curl -sL {} -o StatusMonitor.zip
