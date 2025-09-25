@@ -173,10 +173,10 @@ else
 fi
 
 ### Fetch Status-Monitor-Overlay
-curl -sL https://api.github.com/repos/zdm65477730/Status-Monitor-Overlay/releases/latest \
+curl -sL https://api.github.com/repos/zdm65477730/Status-Monitor-Overlay/releases/tag/v1.2.2 \
   | jq '.name' \
   | xargs -I {} echo {} >> ../description.txt
-curl -sL https://api.github.com/repos/zdm65477730/Status-Monitor-Overlay/releases/latest \
+curl -sL https://api.github.com/repos/zdm65477730/Status-Monitor-Overlay/releases/tag/v1.2.2 \
   | grep -oP '"browser_download_url": "\Khttps://[^"]*.zip"' \
   | sed 's/"//g' \
   | xargs -I {} curl -sL {} -o StatusMonitor.zip
