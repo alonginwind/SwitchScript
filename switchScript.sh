@@ -96,8 +96,8 @@ else
     rm hekate.zip
 fi
 
-### Fetch lastest DBI from https://github.com/rashevskyv/dbi/releases/latest
-curl -sL https://api.github.com/repos/rashevskyv/dbi/releases/latest \
+### Fetch lastest DBI from https://github.com/rashevskyv/DBIPatcher/releases/latest
+curl -sL https://api.github.com/repos/rashevskyv/DBIPatcher/releases/latest \
   | jq '.name' \
   | xargs -I {} echo {} >> ../description.txt
 curl -sL https://api.github.com/repos/rashevskyv/dbi/releases/latest \
