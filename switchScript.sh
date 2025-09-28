@@ -100,7 +100,7 @@ fi
 curl -sL https://api.github.com/repos/rashevskyv/DBIPatcher/releases/latest \
   | jq '.name' \
   | xargs -I {} echo {} >> ../description.txt
-curl -sL https://api.github.com/repos/rashevskyv/dbi/releases/latest \
+curl -sL https://api.github.com/repos/rashevskyv/DBIPatcher/releases/latest \
   | grep -oP '"browser_download_url": "\Khttps://[^"]*.zhcn.nro"' \
   | sed 's/"//g' \
   | xargs -I {} curl -sL {} -o DBI.nro
