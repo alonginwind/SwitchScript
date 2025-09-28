@@ -11,7 +11,7 @@
     - [x] `nx-hbmenu` [From Here](https://github.com/switchbrew/nx-hbmenu/releases/latest)
     - [x] `EasyWrold汉化整合版` [From Here](https://github.com/easyworld/hekate/releases/latest)
   - Nro插件
-    - [x] 游戏安装，存档管理和文件传输工具 `DBI` [From Here](https://github.com/rashevskyv/dbi/releases/latest)
+    - [x] 游戏安装，存档管理和文件传输工具 `DBI` [From Here](https://github.com/rashevskyv/DBIPatcher/releases/latest)
     - [x] 游玩时间记录工具 `NX-Activity-Log` [From Here](https://github.com/zdm65477730/NX-Activity-Log/releases/latest)
   - Tesla
     - [x] 加载器 `nx-ovlloader` [From Here](https://github.com/zdm65477730/nx-ovlloader/releases/latest)
