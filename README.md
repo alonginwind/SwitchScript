@@ -22,6 +22,7 @@
     - [x] 系统监视 `Status-Monitor-Overlay` [From Here](https://github.com/zdm65477730/Status-Monitor-Overlay/releases/latest)
     - [x] 系统监视 `SaltySD` [From Here](https://github.com/masagrator/SaltyNX/releases/latest)
     - [x] 系统超频  `sys-clk` [From Here](https://github.com/zdm65477730/sys-clk/releases/latest)
+    - [x] 系统补丁 `sys-patch` [From Here](https://github.com/zdm65477730/sys-patch/releases/latest)
 - 文件操作：
   - [x] 移动 `fusee.bin` 至 `bootloader/payloads` 文件夹
   - [x] 将 `hekate_ctcaer_*.bin` 重命名为 `payload.bin`
