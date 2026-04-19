@@ -1,14 +1,6 @@
 name: switchScript
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - 'README.md'
-      - 'switchScript.sh'
-  schedule:
-    - cron: 0 8 * * *
   workflow_dispatch:
 
 env:
@@ -63,4 +55,3 @@ jobs:
         delete_tags: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
