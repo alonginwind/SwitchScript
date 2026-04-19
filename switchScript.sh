@@ -96,6 +96,21 @@ else
     rm hekate.zip
 fi
 
+### Fetch latest Lockpick_RCM.bin from https://github.com/zdm65477730/Lockpick_RCMDecScots/releases/latest
+curl -sL https://api.github.com/repos/zdm65477730/Lockpick_RCMDecScots/releases/latest \
+  | jq '.name' \
+  | xargs -I {} echo {} >> ../description.txt
+curl -sL https://api.github.com/repos/zdm65477730/Lockpick_RCMDecScots/releases/latest \
+  | grep -oP '"browser_download_url": "\Khttps://[^"]*.bin"' \
+  | sed 's/"//g' \
+  | xargs -I {} curl -sL {} -o Lockpick_RCM.bin
+if [ $? -ne 0 ]; then
+    echo "Lockpick_RCM download\033[31m failed\033[0m."
+else
+    echo "Lockpick_RCM download\033[32m success\033[0m."
+    mv Lockpick_RCM.bin ./bootloader/payloads
+fi
+
 ### Fetch lastest DBI from https://github.com/rashevskyv/DBIPatcher/releases/latest
 curl -sL https://api.github.com/repos/rashevskyv/DBIPatcher/releases/latest \
   | jq '.name' \
