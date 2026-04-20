@@ -1,6 +1,14 @@
 name: switchScript
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'README.md'
+      - 'switchScript.sh'
+  schedule:
+    - cron: 0 8 * * *
   workflow_dispatch:
 
 env:
