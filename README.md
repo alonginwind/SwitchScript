@@ -6,12 +6,10 @@
 
 - 下载最新
   - 大气层三件套
-    - [x] `Atmosphere + Fusee` [From Here](https://github.com/zdm65477730/Atmosphere/releases/latest)
-    - [x] `nx-hbloader` [From Here](https://github.com/switchbrew/nx-hbloader/releases/latest)
-    - [x] `nx-hbmenu` [From Here](https://github.com/switchbrew/nx-hbmenu/releases/latest)
+    - [x] `Atmosphere + Fusee` [From Here](https://github.com/Atmosphere-NX/Atmosphere/releases/latest)
     - [x] `EasyWrold汉化整合版` [From Here](https://github.com/easyworld/hekate/releases/latest)
   - Payload插件
-    - [x] `密钥提取工具 Lockpick_RCM` [From Here](https://github.com/zdm65477730/Lockpick_RCMDecScots/releases/latest)
+    - [x] `密钥提取工具 Lockpick_RCM` [From Here](https://github.com/impeeza/Lockpick_RCMDecScots/releases/latest)
   - Nro插件
     - [x] 游戏安装，存档管理和文件传输工具 `DBI` [From Here](https://github.com/rashevskyv/DBIPatcher/releases/latest)
     - [x] 游玩时间记录工具 `NX-Activity-Log` [From Here](https://github.com/zdm65477730/NX-Activity-Log/releases/latest)
@@ -27,7 +25,7 @@
   - [x] 移动 `fusee.bin` 至 `bootloader/payloads` 文件夹
   - [x] 将 `hekate_ctcaer_*.bin` 重命名为 `payload.bin`
   - [x] 在 `bootloader` 文件夹中创建 `hekate_ipl.ini`
-  - [x] 在 `atmosphere/config` 文件夹中创建 `exosphere.ini`
+  - [x] 在 `atmosphere` 文件夹中创建 `exosphere.ini`
   - [x] 在 `atmosphere/hosts` 文件夹中创建 `emummc.txt`
   - [x] 在 `atmosphere/config` 文件夹中创建 `override_config.ini`
   - [x] 在 `atmosphere/config` 文件夹中创建 `stratosphere.ini`
