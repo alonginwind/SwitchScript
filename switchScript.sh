@@ -20,11 +20,11 @@ mkdir -p ./SwitchSD/switch/.overlays
 cd SwitchSD
 
 
-### Fetch latest atmosphere from https://github.com/zdm65477730/Atmosphere/releases/latest
-curl -sL https://api.github.com/repos/zdm65477730/Atmosphere/releases/latest \
+### Fetch latest atmosphere from https://github.com/Atmosphere-NX/Atmosphere/releases/latest
+curl -sL https://api.github.com/repos/Atmosphere-NX/Atmosphere/releases/latest \
   | jq '.name' \
   | xargs -I {} echo {} >> ../description.txt
-curl -sL https://api.github.com/repos/zdm65477730/Atmosphere/releases/latest \
+curl -sL https://api.github.com/repos/Atmosphere-NX/Atmosphere/releases/latest \
   | grep -oP '"browser_download_url": "\Khttps://[^"]*atmosphere[^"]*.zip' \
   | sed 's/"//g' \
   | xargs -I {} curl -sL {} -o atmosphere.zip
@@ -36,8 +36,8 @@ else
     rm atmosphere.zip
 fi
 
-### Fetch latest fusee.bin from https://github.com/zdm65477730/Atmosphere/releases/latest
-curl -sL https://api.github.com/repos/zdm65477730/Atmosphere/releases/latest \
+### Fetch latest fusee.bin from https://github.com/Atmosphere-NX/Atmosphere/releases/latest
+curl -sL https://api.github.com/repos/Atmosphere-NX/Atmosphere/releases/latest \
   | grep -oP '"browser_download_url": "\Khttps://[^"]*fusee.bin"' \
   | sed 's/"//g' \
   | xargs -I {} curl -sL {} -o fusee.bin
@@ -47,37 +47,6 @@ else
     echo "fusee download\033[32m success\033[0m."
     mkdir -p ./bootloader/payloads
     mv fusee.bin ./bootloader/payloads
-fi
-
-### Fetch hbl.nsp from https://github.com/switchbrew/nx-hbloader/releases/latest
-curl -sL https://api.github.com/repos/switchbrew/nx-hbloader/releases/latest \
-  | jq '.name' \
-  | xargs -I {} echo {} >> ../description.txt
-curl -sL https://api.github.com/repos/switchbrew/nx-hbloader/releases/latest \
-  | grep -oP '"browser_download_url": "\Khttps://[^"]*.nsp"' \
-  | sed 's/"//g' \
-  | xargs -I {} curl -sL {} -o hbl.nsp
-if [ $? -ne 0 ]; then
-    echo "hbl download\033[31m failed\033[0m."
-else
-    echo "hbl download\033[32m success\033[0m."
-    mv hbl.nsp ./atmosphere
-fi
-
-### Fetch hbmenu from https://github.com/switchbrew/nx-hbmenu/releases/latest
-curl -sL https://api.github.com/repos/switchbrew/nx-hbmenu/releases/latest \
-  | jq '.tag_name' \
-  | xargs -I {} echo nx-hbmenu {} >> ../description.txt
-curl -sL https://api.github.com/repos/switchbrew/nx-hbmenu/releases/latest \
-  | grep -oP '"browser_download_url": "\Khttps://[^"]*.zip"' \
-  | sed 's/"//g' \
-  | xargs -I {} curl -sL {} -o hbmenu.zip
-if [ $? -ne 0 ]; then
-    echo "hbmenu download\033[31m failed\033[0m."
-else
-    echo "hbmenu download\033[32m success\033[0m."
-    unzip -oq hbmenu.zip
-    rm hbmenu.zip
 fi
 
 #### 不再使用原本hekate+汉化文件的方式，直接使用EasyWorld大佬的汉化版本
@@ -96,11 +65,11 @@ else
     rm hekate.zip
 fi
 
-### Fetch latest Lockpick_RCM.bin from https://github.com/zdm65477730/Lockpick_RCMDecScots/releases/latest
-curl -sL https://api.github.com/repos/zdm65477730/Lockpick_RCMDecScots/releases/latest \
+### Fetch latest Lockpick_RCM.bin from https://github.com/impeeza/Lockpick_RCMDecScots/releases/latest
+curl -sL https://api.github.com/repos/impeeza/Lockpick_RCMDecScots/releases/latest \
   | jq '.name' \
   | xargs -I {} echo {} >> ../description.txt
-curl -sL https://api.github.com/repos/zdm65477730/Lockpick_RCMDecScots/releases/latest \
+curl -sL https://api.github.com/repos/impeeza/Lockpick_RCMDecScots/releases/latest \
   | grep -oP '"browser_download_url": "\Khttps://[^"]*.bin"' \
   | sed 's/"//g' \
   | xargs -I {} curl -sL {} -o Lockpick_RCM.bin
@@ -288,8 +257,8 @@ else
     echo "Writing hekate_ipl.ini in ./bootloader/ directory\033[32m success\033[0m."
 fi
 
-### write exosphere.ini in /atmosphere/config
-cat > ./atmosphere/config/exosphere.ini << ENDOFFILE
+### write exosphere.ini in /atmosphere
+cat > ./atmosphere/exosphere.ini << ENDOFFILE
 [exosphere]
 debugmode=1
 debugmode_user=0
