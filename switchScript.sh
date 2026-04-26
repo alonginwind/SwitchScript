@@ -258,7 +258,7 @@ else
 fi
 
 ### write exosphere.ini in /atmosphere
-cat > ./atmosphere/exosphere.ini << ENDOFFILE
+cat > ./exosphere.ini << ENDOFFILE
 [exosphere]
 debugmode=1
 debugmode_user=0
