@@ -34,4 +34,4 @@
   - [x] 在 `atmosphere/config` 文件夹中创建 `system_settings.ini`
   - [x] 删除 `switch` 文件夹中 `haze.nro`
   - [x] 删除 `switch` 文件夹中 `reboot_to_payload.nro`
-  - [x] 删除 `config/Ultrahand` 文件夹中 `themes` 的文件夹
+  - [x] 删除 `config/sys-clk` 文件夹中 `log.flag`
