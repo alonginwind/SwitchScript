@@ -403,12 +403,12 @@ fi
 ### Delete unneeded files
 rm -f switch/haze.nro
 rm -f switch/reboot_to_payload.nro
-rm -rf ./config/Ultrahand/themes
+rm -f config/sys-clk/log.flag
 
 
 ### End
 cp ../description.txt ./
-find ./atmosphere/ * -exec touch -t 202401010000 {} \;
+find ./* -exec touch -t 202401010000 {} \;
 
 # -------------------------------------------
 
