@@ -33,3 +33,4 @@
   - [x] 删除 `switch` 文件夹中 `haze.nro`
   - [x] 删除 `switch` 文件夹中 `reboot_to_payload.nro`
   - [x] 删除 `config/sys-clk` 文件夹中 `log.flag`
+  - [x] 修改 `config/tesla` 文件夹中 `config.ini` 替换 `L+DDWON`
