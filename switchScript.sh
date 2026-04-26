@@ -68,7 +68,7 @@ fi
 ### Fetch latest Lockpick_RCM.bin from https://github.com/impeeza/Lockpick_RCMDecScots/releases/latest
 curl -sL https://api.github.com/repos/impeeza/Lockpick_RCMDecScots/releases/latest \
   | jq '.name' \
-  | xargs -I {} echo {} >> ../description.txt
+  | xargs -I {} echo "Lockpick_RCM {}" >> ../description.txt
 curl -sL https://api.github.com/repos/impeeza/Lockpick_RCMDecScots/releases/latest \
   | grep -oP '"browser_download_url": "\Khttps://[^"]*.bin"' \
   | sed 's/"//g' \
