@@ -229,6 +229,12 @@ else
     echo "Rename hekate_ctcaer_*.bin to payload.bin\033[32m success\033[0m."
 fi
 
+### write config.ini in /config/tesla
+cat > ./config/tesla/config.ini << ENDOFFILE
+[tesla]
+key_combo=L+DDOWN
+ENDOFFILE
+
 ### Write hekate_ipl.ini in /bootloader/
 cat > ./bootloader/hekate_ipl.ini << ENDOFFILE
 [config]
