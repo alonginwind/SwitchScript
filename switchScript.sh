@@ -85,15 +85,20 @@ curl -sL https://api.github.com/repos/rashevskyv/DBIPatcher/releases/latest \
   | jq '.name' \
   | xargs -I {} echo {} >> ../description.txt
 curl -sL https://api.github.com/repos/rashevskyv/DBIPatcher/releases/latest \
-  | grep -oP '"browser_download_url": "\Khttps://[^"]*.cn.nro"' \
+  | grep -oP '"browser_download_url": "\Khttps://[^"]*.nro"' \
   | sed 's/"//g' \
   | xargs -I {} curl -sL {} -o DBI.nro
+curl -sL https://api.github.com/repos/rashevskyv/DBIPatcher/releases/latest \
+  | grep -oP '"browser_download_url": "\Khttps://[^"]*zhcn.bin"' \
+  | sed 's/"//g' \
+  | xargs -I {} curl -sL {} -o translation.bin
 if [ $? -ne 0 ]; then
     echo "DBI download\033[31m failed\033[0m."
 else
     echo "DBI download\033[32m success\033[0m."
     mkdir -p ./switch/DBI
     mv DBI.nro ./switch/DBI
+    mv translation.bin ./switch/DBI
 fi
 
 ### Fetch dbi config
