@@ -70,14 +70,15 @@ curl -sL https://api.github.com/repos/impeeza/Lockpick_RCMDecScots/releases/late
   | jq '.name' \
   | xargs -I {} echo "Lockpick_RCM {}" >> ../description.txt
 curl -sL https://api.github.com/repos/impeeza/Lockpick_RCMDecScots/releases/latest \
-  | grep -oP '"browser_download_url": "\Khttps://[^"]*.bin"' \
+  | grep -oP '"browser_download_url": "\Khttps://[^"]*.Hekate.zip"' \
   | sed 's/"//g' \
-  | xargs -I {} curl -sL {} -o Lockpick_RCM.bin
+  | xargs -I {} curl -sL {} -o Lockpick_RCM.zip
 if [ $? -ne 0 ]; then
     echo "Lockpick_RCM download\033[31m failed\033[0m."
 else
     echo "Lockpick_RCM download\033[32m success\033[0m."
-    mv Lockpick_RCM.bin ./bootloader/payloads
+    unzip -oq Lockpick_RCM.zip
+    rm Lockpick_RCM.zip
 fi
 
 ### Fetch lastest DBI from https://github.com/rashevskyv/DBIPatcher/releases/latest
